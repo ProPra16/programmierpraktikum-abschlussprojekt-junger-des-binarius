@@ -1,0 +1,14 @@
+Marius May, Can Schwarzkamp und Nils Kleine Klausing sind anwesend
+
+-IntelliJ als Entwicklungsumgebung
+-Informiert ueber Git, Gradle und IntelliJ
+-Viel rumprobiert bei git 
+-Java/Gradle-Projekt erstellt
+
+Aufgaben fuer naechste Woche:
+-Travis Skript schreiben
+-Am Wochenende ueber die Struktur des Programms sprechen
+-Erste Programmierarbeit beginnen:
+	- Nils: GUI
+	- Marius u. Can: Programmtechnische Strukturen (Welche Klassen sollte es geben und wie arbeiten diese zusammen)
+-Aufteilungen bleiben variabel und werden oft diskutiert
