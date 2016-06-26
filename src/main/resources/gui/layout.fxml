@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
 <BorderPane
     fx:controller="gui.WindowController"
     xmlns:fx="http://javafx.com/fxml">
     <center>
-
+        <TextArea fx:id="CodeArea" prefHeight="300" prefWidth="300" />
     </center>
     <top>
 
     </top>
     <bottom>
-
+        <HBox prefHeight="100" spacing="100" alignment="CENTER">
+            <Label fx:id="statusPassed" text="Test Passed"/>
+            <Label fx:id="statusFailed" text="Test Failed"/>
+        </HBox>
     </bottom>
     <left>
-
+        <VBox prefWidth="100" spacing="30" alignment="CENTER">
+            <Label fx:id="statusRed" text="RED"/>
+            <Label fx:id="statusGreen" text="GREEN"/>
+            <Label fx:id="statusRefactor" text="REFACTOR"/>
+        </VBox>
     </left>
     <right>
-
+        <VBox prefWidth="100" spacing="30" alignment="CENTER">
+            <Button fx:id="switchToGreen" text="-> GREEN"/>
+            <Button fx:id="switchToRefactor" text="-> REFACTOR"/>
+            <Button fx:id="switchToRed" text="-> RED"/>
+        </VBox>
     </right>
 </BorderPane>
 
