@@ -3,8 +3,21 @@
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane
     fx:controller="gui.WindowController"
-    xmlns:fx="http://javafx.com/fxml"
->
+    xmlns:fx="http://javafx.com/fxml">
+    <center>
 
+    </center>
+    <top>
+
+    </top>
+    <bottom>
+
+    </bottom>
+    <left>
+
+    </left>
+    <right>
+
+    </right>
 </BorderPane>
 
