@@ -19,7 +19,7 @@ public class Catalog {
     public Catalog(){
 
     }
-    public Exercise getEintrag(int i){
+    public Exercise getExercise(int i){
         return exercises[i];
     }
     public void loadCatalogFromXML(){

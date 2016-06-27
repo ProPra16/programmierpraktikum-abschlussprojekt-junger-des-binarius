@@ -27,20 +27,20 @@ public class RomanNumbersTest {
     <exercise name="Römische Zahlen2">
         <description>Konvertiert arabische in r¨omische Zahlen.</description>
         <classes>
-            <class name="RomanNumberConverter">
-                public class RomanNumberConverter {
-                }
+            <class name="RomanNumberConverter2">
+public class RomanNumberConverter2 {
+}
             </class>
         </classes>
         <tests>
-            <test name="RomanNumberConverterTest">
-                import static org.junit.Assert.*;
-                import org.junit.Test;
-                public class RomanNumbersTest {
-                @Test
-                public void testSomething() {
-                }
-                }
+            <test name="RomanNumberConverter2Test">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class RomanNumbersTest2 {
+    @Test
+    public void testSomething() {
+    }
+}
             </test>
         </tests>
         <config>
