@@ -8,15 +8,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ListViewWindow {
     public static void createWindow(){
-        StackPane listPane = new StackPane();
+        VBox listPane = new VBox();
         ListView<String> exerciseView = new ListView<>();
         ObservableList<String> exerciseList = FXCollections.observableArrayList("Aufgabe 1", "Aufgabe 2", "Aufgbae 3");
         exerciseView.setItems(exerciseList);
