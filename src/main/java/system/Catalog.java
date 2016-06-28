@@ -22,6 +22,9 @@ public class Catalog {
     public Exercise getExercise(int i){
         return exercises[i];
     }
+    public Exercise[] getExercises() {
+        return exercises;
+    }
     public void loadCatalogFromXML(){
         try {
             DocumentBuilderFactory docbfac = DocumentBuilderFactory.newInstance();
