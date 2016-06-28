@@ -14,10 +14,10 @@ import java.io.IOException;
 
 public class ListViewWindow {
     private Catalog catalog = new Catalog();
-
+    public static Stage listStage;
     //Erstellt ListView-Fenster
     public void createWindow() throws IOException {
-        Stage listStage = new Stage();
+        listStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/listView.fxml"));
         Scene listScene = new Scene(root);
         //Fenster
