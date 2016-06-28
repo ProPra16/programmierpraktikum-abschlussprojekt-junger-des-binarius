@@ -11,7 +11,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ListView?>
 <BorderPane
-    fx:controller="gui.WindowController"
+    fx:controller="gui.controller.WindowController"
     xmlns:fx="http://javafx.com/fxml">
     <center>
         <TextArea fx:id="codeArea" prefHeight="300" prefWidth="300" />
