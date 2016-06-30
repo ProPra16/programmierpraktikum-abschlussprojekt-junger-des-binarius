@@ -28,3 +28,8 @@ Aufgabenaufteilung geht ab heute aus den Commits hervor.
 
 Anmerkung: Das letzte Protokoll vom 22.06.16 wurde von Nils geschrieben.
 Dies wurde in der Datei vergessen zu erwaehnen.
+
+Anmerkung 2: Da die E-Mail-Adressen von Marius und Can nicht korrekt im
+Repository hinterlegt waren, wurde bei bisherigen Commits nicht der
+richtige Github-Username, sondern der Windows-Nutzername angezeigt.
+Dies wurde nun korrigiert.
