@@ -35,7 +35,6 @@ public class MainWindowController {
     public void initialize(){
         catalog = new Catalog();
         catalog.loadCatalogFromXML();
-        currentStatus=RED;
     }
 
     public void openListView(ActionEvent actionEvent) {

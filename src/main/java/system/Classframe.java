@@ -6,10 +6,12 @@ package system;
 public class Classframe {
     private String classname;
     private String frameContent;
+    private boolean isTest;
 
-    public Classframe(String classname,String frameContent){
+    public Classframe(String classname,String frameContent,boolean isTest){
         this.classname = classname;
         this.frameContent = frameContent;
+        this.isTest = isTest;
     }
 
     public String getClassname(){
@@ -18,5 +20,9 @@ public class Classframe {
 
     public String getframeContent(){
         return frameContent;
+    }
+
+    public boolean isTest(){
+        return isTest;
     }
 }

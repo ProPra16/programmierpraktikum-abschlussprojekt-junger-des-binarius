@@ -64,7 +64,7 @@ public class Catalog {
             NodeList allclasses = classes.getElementsByTagName("class");
             for(int x=0;x<allclasses.getLength();x++){
                 Element oneclass = (Element)allclasses.item(x);
-                classframes.add(new Classframe(oneclass.getAttribute("name"),oneclass.getTextContent()));
+                classframes.add(new Classframe(oneclass.getAttribute("name"),oneclass.getTextContent(),false));
             }
         }
         else System.out.println("Exercise: " + name + " has no classes");
@@ -79,7 +79,7 @@ public class Catalog {
             NodeList alltests = tests.getElementsByTagName("test");
             for(int x=0;x<alltests.getLength();x++){
                 Element onetest = (Element)alltests.item(x);
-                testframes.add(new Classframe(onetest.getAttribute("name"),onetest.getTextContent()));
+                testframes.add(new Classframe(onetest.getAttribute("name"),onetest.getTextContent(),true));
             }
         }
         else System.out.println("Exercise: " + name + " has no tests");
