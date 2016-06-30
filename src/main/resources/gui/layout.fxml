@@ -31,7 +31,7 @@
     </bottom>
     <left>
         <VBox prefWidth="100" spacing="30" alignment="CENTER">
-            <ListView fx:id="classView"/>
+            <ListView fx:id="testsView"/>
             <Label fx:id="statusRed" text="RED"/>
             <Label fx:id="statusGreen" text="GREEN"/>
             <Label fx:id="statusRefactor" text="REFACTOR"/>
