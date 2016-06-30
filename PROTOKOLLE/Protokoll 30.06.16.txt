@@ -1,0 +1,31 @@
+Protokollant: Can Schwarzkamp
+
+Marius May, Can Schwarzkamp und Nils Kleine Klausing sind anwesend.
+
+Es werden die Ziele, welche letzte Woche festgelegt wurden besprochen.
+Alle Ziele wurden weitesgehend erreicht. Nils hat die Entwicklung der
+GUI begonnen und das Gradle-Skript angepasst, Marius hat erste wichtige
+Klassen, wie beispielsweise das Einlesen des Katalog implementiert und
+Can hat das Travis Skript eingebunden. Weiterhin werden Probleme, welche
+waehrend der letzten Woche aufgetreten sind, wie zum Beispiel die Auf-
+gaben der Klasse MainWindowController geklaert und es wird gemeinsam
+weiter an dem Programm gearbeitet und mehrere Commits verfasst und
+gepusht.
+
+Dabei werden auch weitere Fragen zum Programmablauf besprochen und nicht
+loesbare Fragen im ILIAS gestellt.
+
+Anschliessend wird das weitere Vorgehen besprochen.
+
+Aufgaben fuer naechste Woche:
+
+- Auseinandersetzen mit der gegebenen Compiler-Bibliothek
+- Weitere Ausarbeitung der GUI
+- Ausarbeiten der verschiedenen Zustaende des Programms (ROT, GRUEN, ..)
+
+An diesen Aufgaben wird weitesgehend zusammen gearbeitet, die genaue
+Aufgabenaufteilung geht ab heute aus den Commits hervor.
+
+Anmerkung: Das letzte Protokoll vom 22.06.16 wurde von Nils geschrieben.
+Dies wurde in der Datei vergessen zu erwaehnen, ist aber am Commit zu
+erkennen.
