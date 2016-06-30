@@ -17,11 +17,11 @@ import system.Catalog;
 import system.Classframe;
 import system.Exercise;
 
-import java.io.IOException;
-
 
 public class MainWindowController {
     private Catalog catalog;
+    private static final int RED=0,GREEN=1,REFACTOR=2;
+    private int currentStatus;
     private Main main;
     @FXML
     private Label statusPassed, statusFailed, statusRed, statusGreen, statusRefactor;
@@ -35,6 +35,7 @@ public class MainWindowController {
     public void initialize(){
         catalog = new Catalog();
         catalog.loadCatalogFromXML();
+        currentStatus=RED;
     }
 
     public void openListView(ActionEvent actionEvent) {
@@ -46,13 +47,5 @@ public class MainWindowController {
             }
         }
     }
-
-    public void fillTestsView(){
-        /*ObservableList<String> list = selectedExercise.getTests();
-        testsView.setItems(list);
-        testsView.refresh();*/
-    }
-
-
 
 }
