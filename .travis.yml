@@ -10,5 +10,4 @@ script:
   - echo "Done"
 
 notifications:
-  slack: canschwkp:ukDPqzDiiN71XtvvDXcN
   email: false
