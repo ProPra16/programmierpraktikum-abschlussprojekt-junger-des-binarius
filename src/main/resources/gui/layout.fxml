@@ -11,7 +11,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ListView?>
 <BorderPane
-    fx:controller="gui.controller.WindowController"
+    fx:controller="gui.controller.MainWindowController"
     xmlns:fx="http://javafx.com/fxml">
     <center>
         <TextArea fx:id="codeArea" prefHeight="300" prefWidth="300" />
@@ -30,7 +30,7 @@
         </HBox>
     </bottom>
     <left>
-        <VBox prefWidth="100" spacing="30" alignment="CENTER">
+        <VBox prefWidth="200" spacing="30" alignment="CENTER">
             <ListView fx:id="testsView"/>
             <Label fx:id="statusRed" text="RED"/>
             <Label fx:id="statusGreen" text="GREEN"/>

@@ -20,6 +20,9 @@ public class Catalog {
 
     }
     public Exercise getExercise(int i){
+        if(i<0 || i>=exercises.length){
+            return null;
+        }
         return exercises[i];
     }
     public Exercise[] getExercises() {

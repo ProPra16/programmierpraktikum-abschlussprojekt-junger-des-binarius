@@ -3,6 +3,7 @@ package gui.controller;
 
 import gui.ListViewWindow;
 
+import gui.Main;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,15 +13,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import system.Catalog;
 import system.Classframe;
-import system.SelectedExercise;
+import system.Exercise;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 
-public class WindowController {
-    SelectedExercise selectedExercise = new SelectedExercise();
+public class MainWindowController {
+    private Catalog catalog;
+    private Main main;
     @FXML
     private Label statusPassed, statusFailed, statusRed, statusGreen, statusRefactor;
     @FXML
@@ -28,25 +30,29 @@ public class WindowController {
     @FXML
     private TextArea codeArea;
     @FXML
-    private static ListView<String> testsView;
-    public void openListView(ActionEvent actionEvent) {
-        ListViewWindow window = new ListViewWindow();
-        try {
-            selectedExercise.setSelectedExercise(window.createWindow());
+    private ListView<String> testsView;
 
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void initialize(){
+        catalog = new Catalog();
+        catalog.loadCatalogFromXML();
+    }
+
+    public void openListView(ActionEvent actionEvent) {
+        testsView.getItems().clear();
+        Exercise exercise = ListViewWindow.createWindow(catalog);
+        if(exercise != null){
+            for(Classframe classframe: exercise.getTestframes()){
+                testsView.getItems().add(classframe.getClassname());
+            }
         }
     }
 
     public void fillTestsView(){
-        ObservableList<String> list = selectedExercise.getTests();
+        /*ObservableList<String> list = selectedExercise.getTests();
         testsView.setItems(list);
-        testsView.refresh();
+        testsView.refresh();*/
     }
 
-    public void initialize(){
 
-    }
 
 }

@@ -7,12 +7,26 @@ public class RomanNumberConverter {
 
 }
             </class>
+            <class name="class2">
+public class class2 {
+
+}
+            </class>
         </classes>
         <tests>
             <test name="RomanNumberConverterTest">
 import static org.junit.Assert.*;
 import org.junit.Test;
 public class RomanNumbersTest {
+    @Test
+    public void testSomething() {
+    }
+}
+            </test>
+            <test name="class2Test">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class class2Test {
     @Test
     public void testSomething() {
     }

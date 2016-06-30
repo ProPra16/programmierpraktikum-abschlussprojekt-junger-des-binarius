@@ -1,10 +1,7 @@
 package gui;
 // Created by User on 27.06.2016.
 
-import gui.controller.WindowController;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -15,15 +12,10 @@ import system.Catalog;
 import system.Exercise;
 
 
-import java.io.IOException;
-
-
 public class ListViewWindow {
-    private Catalog catalog = new Catalog();
-    public static Stage listStage;
     //Erstellt ListView-Fenster
-    public Exercise createWindow() throws IOException {
-        listStage = new Stage();
+    public static Exercise createWindow(Catalog catalog) {
+        Stage listStage = new Stage();
         VBox root = new VBox();
         ListView<String> exerciseView = new ListView<>();
         Button loadButton = new Button("Load Exercise");
