@@ -6,10 +6,10 @@ import gui.CatalogChooserWindow;
 import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import status.Red;
 import status.Status;
 import system.Catalog;
 import system.Exercise;
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MainWindowController {
     private Catalog catalog;
-    private Status status;
+    private Status currentstatus;
     private Exercise currentExercise;
     private Main main;
     @FXML
@@ -40,7 +40,7 @@ public class MainWindowController {
     public void chooseExerciseFromCatalog() {
         currentExercise = CatalogChooserWindow.createWindow(catalog);
         if (currentExercise!=null){
-            status = new Status(this,currentExercise);
+            currentstatus = new Red(this,currentExercise);
         }
     }
 
@@ -58,6 +58,13 @@ public class MainWindowController {
 
     public void selectClass(){
         int index = classesListView.getFocusModel().getFocusedIndex();
-        status.changeClassframe(index);
+        currentstatus.changeClassframe(index);
     }
+
+    public void switchStatus(ActionEvent actionEvent){
+        if(actionEvent.getSource().equals(switchToRed)){
+
+        }
+    }
+
 }
