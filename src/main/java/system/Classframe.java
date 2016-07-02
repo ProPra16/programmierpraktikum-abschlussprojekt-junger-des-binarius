@@ -4,21 +4,34 @@ package system;
  * Created by mayma on 27.06.2016.
  */
 public class Classframe {
-    private String classname;
+    private String name;
     private String frameContent;
     private boolean isTest;
+    private String savedContent;
 
-    public Classframe(String classname,String frameContent,boolean isTest){
-        this.classname = classname;
+    public Classframe(String name,String frameContent,boolean isTest){
+        this.name = name;
         this.frameContent = frameContent;
+        saveContent();
         this.isTest = isTest;
     }
 
-    public String getClassname(){
-        return classname;
+    public void saveContent(){
+        savedContent = frameContent;
     }
 
-    public String getframeContent(){
+    public void restoreContent(){
+        frameContent = savedContent;
+    }
+
+    public void setFrameContent(String frameContent){
+        this.frameContent = frameContent;
+    }
+    public String getName(){
+        return name;
+    }
+
+    public String getFrameContent(){
         return frameContent;
     }
 

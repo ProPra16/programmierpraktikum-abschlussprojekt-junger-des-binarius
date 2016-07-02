@@ -19,7 +19,7 @@
     <top>
         <MenuBar>
             <Menu text="Exercise">
-                <MenuItem text="Load Exercise" onAction="#openListView"/>
+                <MenuItem text="Load Exercise" onAction="#chooseExerciseFromCatalog"/>
             </Menu>
         </MenuBar>
     </top>
@@ -31,7 +31,8 @@
     </bottom>
     <left>
         <VBox prefWidth="200" spacing="30" alignment="CENTER">
-            <ListView fx:id="testsView"/>
+            <ListView fx:id="classesListView"/>
+            <Button fx:id="selectClass" text="Select Class" onAction="#selectClass"/>
             <Label fx:id="statusRed" text="RED"/>
             <Label fx:id="statusGreen" text="GREEN"/>
             <Label fx:id="statusRefactor" text="REFACTOR"/>

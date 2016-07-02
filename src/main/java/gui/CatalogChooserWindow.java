@@ -12,7 +12,7 @@ import system.Catalog;
 import system.Exercise;
 
 
-public class ListViewWindow {
+public class CatalogChooserWindow {
     //Erstellt ListView-Fenster
     public static Exercise createWindow(Catalog catalog) {
         Stage listStage = new Stage();

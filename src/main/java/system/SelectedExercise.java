@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SelectedExercise {
-
+/*
     private static Exercise selectedExercise;
 
     public ObservableList<String> getClasses(){
@@ -38,4 +38,5 @@ public class SelectedExercise {
     public static void setSelectedExercise(Exercise selectedExercise) {
         SelectedExercise.selectedExercise = selectedExercise;
     }
+    */
 }

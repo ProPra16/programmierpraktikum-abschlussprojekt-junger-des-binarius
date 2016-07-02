@@ -1,27 +1,26 @@
 package gui.controller;
 // Created by User on 25.06.2016.
 
-import gui.ListViewWindow;
+import gui.CatalogChooserWindow;
 
 import gui.Main;
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import status.Status;
 import system.Catalog;
-import system.Classframe;
 import system.Exercise;
+
+import java.util.List;
 
 
 public class MainWindowController {
     private Catalog catalog;
-    private static final int RED=0,GREEN=1,REFACTOR=2;
-    private int currentStatus;
+    private Status status;
+    private Exercise currentExercise;
     private Main main;
     @FXML
     private Label statusPassed, statusFailed, statusRed, statusGreen, statusRefactor;
@@ -30,21 +29,35 @@ public class MainWindowController {
     @FXML
     private TextArea codeArea;
     @FXML
-    private ListView<String> testsView;
+    private ListView<String> classesListView;
 
     public void initialize(){
         catalog = new Catalog();
         catalog.loadCatalogFromXML();
+        chooseExerciseFromCatalog();
     }
 
-    public void openListView(ActionEvent actionEvent) {
-        testsView.getItems().clear();
-        Exercise exercise = ListViewWindow.createWindow(catalog);
-        if(exercise != null){
-            for(Classframe classframe: exercise.getTestframes()){
-                testsView.getItems().add(classframe.getClassname());
-            }
+    public void chooseExerciseFromCatalog() {
+        currentExercise = CatalogChooserWindow.createWindow(catalog);
+        if (currentExercise!=null){
+            status = new Status(this,currentExercise);
         }
     }
 
+    public void fillCodeArea(String code){
+        codeArea.setText(code);
+    }
+
+    public String getCode(){
+        return codeArea.getText();
+    }
+
+    public void fillClassList(List<String> content){
+        classesListView.getItems().setAll(content);
+    }
+
+    public void selectClass(){
+        int index = classesListView.getFocusModel().getFocusedIndex();
+        status.changeClassframe(index);
+    }
 }
