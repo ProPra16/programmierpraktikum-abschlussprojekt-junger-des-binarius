@@ -23,10 +23,10 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/gui/layout.fxml"));
         Scene mainScene = new Scene(root);
         primaryStage.getIcons().setAll(new Image("/images/ICON_TDDT.png"));
-        primaryStage.setMinWidth(1000);
-        primaryStage.setMinHeight(700);
-        primaryStage.setWidth(1000);
-        primaryStage.setHeight(700);
+        primaryStage.setMinWidth(1024);
+        primaryStage.setMinHeight(768);
+        primaryStage.setWidth(1024);
+        primaryStage.setHeight(768);
 
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("TDDT");

@@ -17,14 +17,14 @@ import system.Exercise;
 
 
 public class CatalogChooserWindow {
-    private static final Image icon = new Image("images/ICON_Catalog.png");
+    private static final Image icon = new Image("images/ICON_CATALOG.png");
     //Erstellt ListView-Fenster
     public static Exercise createWindow(Catalog catalog) {
         Stage listStage = new Stage();
         listStage.getIcons().setAll(icon);
         listStage.setResizable(false);
         listStage.setTitle("Choose Exercise");
-        VBox root = new VBox();
+        VBox root = new VBox(5);
         root.setPadding(new Insets(5));
         root.setPrefWidth(250);
         root.setFillWidth(true);

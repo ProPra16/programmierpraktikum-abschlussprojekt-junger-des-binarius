@@ -1,5 +1,7 @@
 package system;
 
+import vk.core.api.CompilationUnit;
+
 /**
  * Created by mayma on 27.06.2016.
  */
@@ -27,6 +29,7 @@ public class Classframe {
     public void setFrameContent(String frameContent){
         this.frameContent = frameContent;
     }
+
     public String getName(){
         return name;
     }
@@ -37,5 +40,9 @@ public class Classframe {
 
     public boolean isTest(){
         return isTest;
+    }
+
+    public CompilationUnit getCompilationUnit() {
+        return new CompilationUnit(name, frameContent, isTest);
     }
 }
