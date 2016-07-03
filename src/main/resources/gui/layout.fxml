@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
@@ -10,39 +9,31 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ListView?>
-<BorderPane
-        fx:controller="gui.controller.MainWindowController"
-        xmlns:fx="http://javafx.com/fxml">
-    <center>
-        <TextArea fx:id="codeArea" prefHeight="300" prefWidth="300" />
-    </center>
-    <top>
-        <MenuBar>
-            <Menu text="Exercise">
-                <MenuItem text="Load Exercise" onAction="#chooseExerciseFromCatalog"/>
-            </Menu>
-        </MenuBar>
-    </top>
-    <bottom>
-        <HBox prefHeight="100" spacing="100" alignment="CENTER">
-            <Label fx:id="statusPassed" text="Test Passed"/>
-            <Label fx:id="statusFailed" text="Test Failed"/>
-        </HBox>
-    </bottom>
-    <left>
-        <VBox prefWidth="200" spacing="30" alignment="CENTER">
+
+<?import javafx.geometry.Insets?>
+<VBox prefHeight="5000" prefWidth="5000"
+      fx:controller="gui.controller.MainWindowController"
+      xmlns:fx="http://javafx.com/fxml">
+    <MenuBar>
+        <Menu text="Exercise">
+            <MenuItem text="Load Exercise" onAction="#chooseExerciseFromCatalog"/>
+        </Menu>
+    </MenuBar>
+    <HBox prefHeight="5000" prefWidth="5000">
+        <padding>
+            <Insets bottom="15" left="15" right="15" top="15"/>
+        </padding>
+        <VBox prefWidth="400" spacing="30" alignment="TOP_CENTER">
+            <padding>
+                <Insets right="15"/>
+            </padding>
             <ListView fx:id="classesListView"/>
             <Button fx:id="selectClass" text="Select Class" onAction="#selectClass"/>
-            <Label fx:id="statusRed" text="RED"/>
-            <Label fx:id="statusGreen" text="GREEN"/>
-            <Label fx:id="statusRefactor" text="REFACTOR"/>
-        </VBox>
-    </left>
-    <right>
-        <VBox prefWidth="100" spacing="30" alignment="CENTER">
+            <Label fx:id="statusLabel" text="RED"/>
+            <Button fx:id="switchToRed" text="-> RED"/>
             <Button fx:id="switchToGreen" text="-> GREEN"/>
             <Button fx:id="switchToRefactor" text="-> REFACTOR"/>
-            <Button fx:id="switchToRed" text="-> RED"/>
         </VBox>
-    </right>
-</BorderPane>
+        <TextArea fx:id="codeArea" prefWidth="1800" style="-fx-font-family:monospace; -fx-font-size:18px; -fx-tab-size:4"/>
+    </HBox>
+</VBox>
