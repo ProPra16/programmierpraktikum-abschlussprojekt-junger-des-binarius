@@ -3,9 +3,6 @@ package status;
 import gui.controller.MainWindowController;
 import system.Exercise;
 
-/**
- * Created by mayma on 02.07.2016.
- */
 public class Green extends Status{
 
     public Green(MainWindowController mainWindow, Exercise exercise){
@@ -22,5 +19,20 @@ public class Green extends Status{
         currentClassframe.setFrameContent(mainWindow.getCode());
         currentClassframe = exercise.getClassframes()[index];
         mainWindow.fillCodeArea(currentClassframe.getFrameContent());
+    }
+
+    @Override
+    public Status switchToRed() {
+        return this;
+    }
+
+    @Override
+    public Status switchToGreen() {
+        return this;
+    }
+
+    @Override
+    public Status switchToRefactor() {
+        return this;
     }
 }

@@ -6,11 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import system.Catalog;
 
-/**
- * Created by cansc on 23.06.2016.
- */
 public class Main extends Application {
     public static Stage primaryStage;
     public static void main(String[] args) {

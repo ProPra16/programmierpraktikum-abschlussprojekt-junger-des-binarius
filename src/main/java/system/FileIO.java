@@ -5,10 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/**
- * Created by mayma on 25.06.2016.
- */
-
 public class FileIO {
 
     public static String readFromFile(String filepath){

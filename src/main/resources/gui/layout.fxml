@@ -36,9 +36,9 @@
                 <Label fx:id="statusLabel" text="RED" style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill:red;"/>
             </HBox>
             <Region prefHeight="20"/>
-            <Button fx:id="switchToRed" text="-> RED" prefWidth="150"/>
-            <Button fx:id="switchToGreen" text="-> GREEN" prefWidth="150"/>
-            <Button fx:id="switchToRefactor" text="-> REFACTOR" prefWidth="150"/>
+            <Button fx:id="switchToRed" text="-> RED" prefWidth="150" onAction="#switchStatus"/>
+            <Button fx:id="switchToGreen" text="-> GREEN" prefWidth="150" onAction="#switchStatus"/>
+            <Button fx:id="switchToRefactor" text="-> REFACTOR" prefWidth="150" onAction="#switchStatus"/>
         </VBox>
         <TextArea fx:id="codeArea" prefWidth="10000" prefHeight="10000" style="-fx-font-family:monospace; -fx-font-size:18px;"/>
     </HBox>

@@ -3,16 +3,11 @@ package system;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-
-/**
- * Created by mayma on 27.06.2016.
- */
 
 public class Catalog {
     private static final String pathCatalog = "Catalog.xml";

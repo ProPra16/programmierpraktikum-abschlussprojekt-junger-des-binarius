@@ -6,9 +6,7 @@ import gui.CatalogChooserWindow;
 import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
 import status.Red;
 import status.Status;
 import system.Catalog;
@@ -19,7 +17,7 @@ import java.util.List;
 
 public class MainWindowController {
     private Catalog catalog;
-    private Status currentstatus;
+    private Status currentStatus;
     private Exercise currentExercise;
     private Main main;
     @FXML
@@ -27,7 +25,7 @@ public class MainWindowController {
     @FXML
     private Button switchToGreen, switchToRefactor, switchToRed;
     @FXML
-    private TextArea codeArea;
+    private TextArea codeArea, outputArea;
     @FXML
     private ListView<String> classesListView;
 
@@ -40,7 +38,7 @@ public class MainWindowController {
     public void chooseExerciseFromCatalog() {
         currentExercise = CatalogChooserWindow.createWindow(catalog);
         if (currentExercise!=null){
-            currentstatus = new Red(this,currentExercise);
+            currentStatus = new Red(this,currentExercise);
         }
     }
 
@@ -58,13 +56,20 @@ public class MainWindowController {
 
     public void selectClass(){
         int index = classesListView.getFocusModel().getFocusedIndex();
-        currentstatus.changeClassframe(index);
+        currentStatus.changeClassframe(index);
     }
 
     public void switchStatus(ActionEvent actionEvent){
         if(actionEvent.getSource().equals(switchToRed)){
-
+            currentStatus = currentStatus.switchToRed();
+        }else if(actionEvent.getSource().equals(switchToGreen)){
+            currentStatus = currentStatus.switchToGreen();
+        }else if(actionEvent.getSource().equals(switchToRefactor)){
+            currentStatus = currentStatus.switchToRefactor();
         }
     }
 
+    public void addTextToOutputArea(String text) {
+        outputArea.appendText(text);
+    }
 }

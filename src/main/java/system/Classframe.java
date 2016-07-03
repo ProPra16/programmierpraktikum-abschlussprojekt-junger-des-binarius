@@ -2,9 +2,6 @@ package system;
 
 import vk.core.api.CompilationUnit;
 
-/**
- * Created by mayma on 27.06.2016.
- */
 public class Classframe {
     private String name;
     private String frameContent;

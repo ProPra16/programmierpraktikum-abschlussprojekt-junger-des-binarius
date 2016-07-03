@@ -4,9 +4,6 @@ import gui.controller.MainWindowController;
 import system.Classframe;
 import system.Exercise;
 
-/**
- * Created by mayma on 02.07.2016.
- */
 public abstract class Status {
     public static final int RED=0,GREEN=1,REFACTOR=2;
     protected int status;
@@ -25,4 +22,23 @@ public abstract class Status {
     public abstract int getStatus();
 
     public abstract void changeClassframe(int index);
+
+    public Status switchToRed() {
+        saveCurrentClassframe();
+        return this;
+    }
+
+    public Status switchToGreen() {
+        saveCurrentClassframe();
+        return this;
+    }
+
+    public Status switchToRefactor() {
+        saveCurrentClassframe();
+        return this;
+    }
+
+    protected void saveCurrentClassframe() {
+        currentClassframe.setFrameContent(mainWindow.getCode());
+    }
 }

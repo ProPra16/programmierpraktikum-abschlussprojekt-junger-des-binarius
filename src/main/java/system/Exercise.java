@@ -1,14 +1,11 @@
 package system;
 
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
+import vk.core.api.CompilationUnit;
+import vk.core.api.CompilerFactory;
+import vk.core.api.JavaStringCompiler;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by mayma on 27.06.2016.
- */
 public class Exercise {
     private String name;
     private String description;
@@ -52,5 +49,16 @@ public class Exercise {
             names.add(frame.getName());
         }
         return names;
+    }
+
+    public JavaStringCompiler getCompiler() {
+        List<CompilationUnit> compilationUnits = new LinkedList<>();
+        for(Classframe classframe:classframes) {
+            compilationUnits.add(classframe.getCompilationUnit());
+        }
+        for(Classframe testframe:testframes) {
+            compilationUnits.add(testframe.getCompilationUnit());
+        }
+        return CompilerFactory.getCompiler(compilationUnits.toArray(new CompilationUnit[compilationUnits.size()]));
     }
 }
