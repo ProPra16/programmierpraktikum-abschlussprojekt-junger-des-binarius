@@ -11,7 +11,7 @@ public class Green extends Status{
 
     @Override
     public int getStatus(){
-        return Status.RED;
+        return Status.GREEN;
     }
 
     @Override

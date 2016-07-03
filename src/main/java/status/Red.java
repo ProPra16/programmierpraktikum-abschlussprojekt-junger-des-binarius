@@ -22,19 +22,34 @@ public class Red extends Status {
         currentClassframe = exercise.getTestframes()[index];
         mainWindow.fillCodeArea(currentClassframe.getFrameContent());
     }
+    @Override
+    public Status switchToRed() {
+        saveCurrentClassframe();
 
+        return new Red(mainWindow, exercise);
+    }
     @Override
     public Status switchToGreen() {
         saveCurrentClassframe();
         JavaStringCompiler compiler = exercise.getCompiler();
         compiler.compileAndRunTests();
-        TestResult testResult = compiler.getTestResult();
-        System.out.println(testResult==null);
-        if (testResult.getNumberOfFailedTests() == 1) {
+        if(!compiler.getCompilerResult().hasCompileErrors()){
+            TestResult testResult = compiler.getTestResult();
+            if (testResult.getNumberOfFailedTests() == 1) {
+                return new Green(mainWindow, exercise);
+            } else {
+                mainWindow.addTextLineToOutputArea("ALERT: Exactly one failed test is needed to switch to status GREEN. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
+                return this;
+            }
+        }else{
+            mainWindow.addTextLineToOutputArea("ALERT: Could not compile tests");
             return new Green(mainWindow, exercise);
-        } else {
-            mainWindow.addTextToOutputArea("ALERT: Exactly one failed test is needed to switch to status GREEN. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
-            return this;
-       }
+        }
+    }
+    @Override
+    public Status switchToRefactor() {
+        saveCurrentClassframe();
+
+        return new Refactor(mainWindow, exercise);
     }
 }

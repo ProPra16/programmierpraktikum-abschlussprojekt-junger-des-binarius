@@ -32,20 +32,24 @@
             <Button fx:id="selectClass" text="Select Class" prefWidth="300" onAction="#selectClass"/>
             <Region prefHeight="30"/>
             <HBox alignment="CENTER">
-                <Label fx:id="statusLabelText" text="STATUS: " style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill: LightGrey;;"/>
-                <Label fx:id="statusLabel" text="RED" style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill:DarkRed;"/>
+                <Label fx:id="statusLabelText" text="STATUS: "
+                       style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill: LightGrey;;"/>
+                <Label fx:id="statusLabel" text="RED"
+                       style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill:#FF0000;"/>
             </HBox>
             <Region prefHeight="20"/>
             <Button fx:id="switchToRed" text="-> RED" prefWidth="150" onAction="#switchStatus"/>
             <Button fx:id="switchToGreen" text="-> GREEN" prefWidth="150" onAction="#switchStatus"/>
             <Button fx:id="switchToRefactor" text="-> REFACTOR" prefWidth="150" onAction="#switchStatus"/>
         </VBox>
-        <TextArea fx:id="codeArea" prefWidth="10000" prefHeight="10000" style="-fx-font-family:monospace; -fx-font-size:18px;"/>
+        <TextArea fx:id="codeArea" prefWidth="10000" prefHeight="10000"
+                  style="-fx-font-family:monospace; -fx-font-size:18px;"/>
     </HBox>
     <VBox>
         <padding>
             <Insets bottom="15" right="15" left="15"/>
         </padding>
-        <TextArea fx:id="outputArea" editable="false" prefWidth="10000" minHeight="150" style="-fx-font-family:monospace; -fx-font-size:12px;"/>
+        <TextArea fx:id="outputArea" editable="false" prefWidth="10000" minHeight="150"
+                  style="-fx-text-fill:#FF0000;-fx-font-family:monospace; -fx-font-size:12px;"/>
     </VBox>
 </VBox>

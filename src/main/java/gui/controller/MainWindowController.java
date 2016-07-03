@@ -7,6 +7,8 @@ import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import status.Red;
 import status.Status;
 import system.Catalog;
@@ -21,7 +23,7 @@ public class MainWindowController {
     private Exercise currentExercise;
     private Main main;
     @FXML
-    private Label statusPassed, statusFailed, statusRed, statusGreen, statusRefactor;
+    private Label statusLabel;
     @FXML
     private Button switchToGreen, switchToRefactor, switchToRed;
     @FXML
@@ -67,9 +69,17 @@ public class MainWindowController {
         }else if(actionEvent.getSource().equals(switchToRefactor)){
             currentStatus = currentStatus.switchToRefactor();
         }
+        updateStatusLabel();
     }
 
-    public void addTextToOutputArea(String text) {
-        outputArea.appendText(text);
+    public void updateStatusLabel(){
+        switch (currentStatus.getStatus()){
+            case Status.RED: statusLabel.setTextFill(Color.valueOf("#FF0000"));statusLabel.setText("RED"); break;
+            case Status.GREEN: statusLabel.setTextFill(Color.valueOf("#00FF00"));statusLabel.setText("GREEN"); break;
+            case Status.REFACTOR: statusLabel.setTextFill(Color.ORANGE);statusLabel.setText("REFACTOR"); break;
+        }
+    }
+    public void addTextLineToOutputArea(String text) {
+        outputArea.appendText(text+"\n");
     }
 }

@@ -1,23 +1,41 @@
-version '1.0'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    }
+}
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
 apply plugin: 'application'
-
 mainClassName = "gui.Main"
 sourceCompatibility = 1.8
+
+apply plugin: 'com.github.johnrengelman.shadow'
 
 repositories {
     mavenCentral()
 }
+
 dependencies {
-    testCompile "junit:junit:4.11"
+    compile "junit:junit:4.11"
     compile "de.hhu.stups:virtual-kata-lib:1.0.1"
 }
 
-jar{
-    manifest{
-        attributes "Main-Class": mainClassName
-    }
+task copyToLib( type: Copy ) {
+    into "$buildDir/libs/"
+    from "Catalog.xml"
 }
+
+shadowJar {
+    baseName = 'TDDT'
+    classifier = null
+    version = 1.0
+}
+jar.enabled=false
+assemble.dependsOn(shadowJar)
+assemble.dependsOn(copyToLib)
+
