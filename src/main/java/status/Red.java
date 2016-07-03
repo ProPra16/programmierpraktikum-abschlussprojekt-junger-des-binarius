@@ -30,11 +30,11 @@ public class Red extends Status {
         compiler.compileAndRunTests();
         TestResult testResult = compiler.getTestResult();
         System.out.println(testResult==null);
-        /*if (testResult.getNumberOfFailedTests() == 1) {
+        if (testResult.getNumberOfFailedTests() == 1) {
             return new Green(mainWindow, exercise);
         } else {
             mainWindow.addTextToOutputArea("ALERT: Exactly one failed test is needed to switch to status GREEN. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
-            */return this;
-       //}
+            return this;
+       }
     }
 }

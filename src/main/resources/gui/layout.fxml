@@ -32,8 +32,8 @@
             <Button fx:id="selectClass" text="Select Class" prefWidth="300" onAction="#selectClass"/>
             <Region prefHeight="30"/>
             <HBox alignment="CENTER">
-                <Label fx:id="statusLabelText" text="STATUS: " style="-fx-font-size:18px;-fx-font-weight:bold;"/>
-                <Label fx:id="statusLabel" text="RED" style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill:red;"/>
+                <Label fx:id="statusLabelText" text="STATUS: " style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill: LightGrey;;"/>
+                <Label fx:id="statusLabel" text="RED" style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill:DarkRed;"/>
             </HBox>
             <Region prefHeight="20"/>
             <Button fx:id="switchToRed" text="-> RED" prefWidth="150" onAction="#switchStatus"/>

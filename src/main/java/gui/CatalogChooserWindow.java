@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import system.Catalog;
 import system.Exercise;
 
+import java.net.URL;
+
 public class CatalogChooserWindow {
     private static final Image icon = new Image("images/ICON_Catalog.png");
     //Erstellt ListView-Fenster
@@ -32,6 +34,8 @@ public class CatalogChooserWindow {
         loadButton.setPrefWidth(Double.MAX_VALUE);
         root.getChildren().addAll(exerciseView, loadButton);
         Scene listScene = new Scene(root);
+        URL stylesheet = Main.class.getResource("/gui/TDDT_style.css");
+        listScene.getStylesheets().add(stylesheet.toExternalForm());
         listStage.initModality(Modality.WINDOW_MODAL);
         listStage.initOwner(Main.primaryStage);
         exerciseView.getItems().setAll(catalog.getAllExerciseNames());

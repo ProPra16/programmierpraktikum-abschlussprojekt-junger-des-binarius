@@ -1,0 +1,58 @@
+.root {
+    -fx-background-color: #404040;
+}
+.button {
+    -fx-text-fill: LightGrey;
+    -fx-background-color: linear-gradient(#303030, #282828);
+}
+.button:hover {
+    -fx-text-fill: LightGrey;
+    -fx-background-color: linear-gradient(#282828, #303030);
+}
+.text-area {
+    -fx-text-fill: LightGrey;
+    -fx-background-color: transparent, #404040, transparent, #404040;
+}
+.text-area .content {
+    -fx-background-color: #303030;
+}
+.list-view {
+    -fx-padding: 0px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.list-view .list-cell:odd {
+    -fx-text-fill: LightGrey;
+    -fx-background-color: #303030;
+}
+.list-view .list-cell:even {
+    -fx-text-fill: LightGrey;
+    -fx-background-color: #323232;
+}
+.list-view .list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-text-fill: LightGrey;
+    -fx-background-color: #26466D;
+}
+.menu-bar {
+    -fx-background-color: #383838
+}
+.menu {
+    -fx-background-color: #383838;
+}
+.menu:hover {
+    -fx-background-color: #26466D;
+}
+.menu .label {
+    -fx-text-fill: LightGrey;
+}
+.context-menu {
+    -fx-padding: 2,2,2,2;
+    -fx-background-color: #484848
+}
+.menu-item {
+    -fx-padding: 10, 10, 10, 10;
+    -fx-background-color: #383838
+}
+.menu-item:hover {
+    -fx-background-color: #26466D;
+}
