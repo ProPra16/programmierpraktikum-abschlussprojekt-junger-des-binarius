@@ -21,7 +21,12 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/gui/layout.fxml"));
         Scene mainScene = new Scene(root);
-        primaryStage.setMaximized(true);
+
+        primaryStage.setMinWidth(1000);
+        primaryStage.setMinHeight(700);
+        primaryStage.setWidth(1000);
+        primaryStage.setHeight(700);
+
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("TDDT");
         primaryStage.show();

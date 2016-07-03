@@ -11,7 +11,8 @@
 <?import javafx.scene.control.ListView?>
 
 <?import javafx.geometry.Insets?>
-<VBox prefHeight="5000" prefWidth="5000"
+<?import javafx.scene.layout.Region?>
+<VBox prefHeight="10000" prefWidth="10000"
       fx:controller="gui.controller.MainWindowController"
       xmlns:fx="http://javafx.com/fxml">
     <MenuBar>
@@ -19,21 +20,26 @@
             <MenuItem text="Load Exercise" onAction="#chooseExerciseFromCatalog"/>
         </Menu>
     </MenuBar>
-    <HBox prefHeight="5000" prefWidth="5000">
+    <HBox prefHeight="10000" prefWidth="10000">
         <padding>
             <Insets bottom="15" left="15" right="15" top="15"/>
         </padding>
-        <VBox prefWidth="400" spacing="30" alignment="TOP_CENTER">
+        <VBox minWidth="300" spacing="5" alignment="TOP_CENTER">
             <padding>
                 <Insets right="15"/>
             </padding>
-            <ListView fx:id="classesListView"/>
-            <Button fx:id="selectClass" text="Select Class" onAction="#selectClass"/>
-            <Label fx:id="statusLabel" text="RED"/>
-            <Button fx:id="switchToRed" text="-> RED"/>
-            <Button fx:id="switchToGreen" text="-> GREEN"/>
-            <Button fx:id="switchToRefactor" text="-> REFACTOR"/>
+            <ListView fx:id="classesListView" prefHeight="300"/>
+            <Button fx:id="selectClass" text="Select Class" prefWidth="300" onAction="#selectClass"/>
+            <Region prefHeight="30"/>
+            <HBox alignment="CENTER">
+                <Label fx:id="statusLabelText" text="STATUS: " style="-fx-font-size:18px;-fx-font-weight:bold;"/>
+                <Label fx:id="statusLabel" text="RED" style="-fx-font-size:18px;-fx-font-weight:bold;-fx-text-fill:red;"/>
+            </HBox>
+            <Region prefHeight="20"/>
+            <Button fx:id="switchToRed" text="-> RED" prefWidth="150"/>
+            <Button fx:id="switchToGreen" text="-> GREEN" prefWidth="150"/>
+            <Button fx:id="switchToRefactor" text="-> REFACTOR" prefWidth="150"/>
         </VBox>
-        <TextArea fx:id="codeArea" prefWidth="1800" style="-fx-font-family:monospace; -fx-font-size:18px; -fx-tab-size:4"/>
+        <TextArea fx:id="codeArea" prefWidth="10000" prefHeight="10000" style="-fx-font-family:monospace; -fx-font-size:18px;"/>
     </HBox>
 </VBox>
