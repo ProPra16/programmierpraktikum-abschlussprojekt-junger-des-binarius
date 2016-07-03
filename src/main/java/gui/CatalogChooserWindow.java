@@ -33,14 +33,9 @@ public class CatalogChooserWindow {
         loadButton.setPrefWidth(Double.MAX_VALUE);
         root.getChildren().addAll(exerciseView, loadButton);
         Scene listScene = new Scene(root);
-        //Fenster
         listStage.initModality(Modality.WINDOW_MODAL);
         listStage.initOwner(Main.primaryStage);
-        catalog.loadCatalogFromXML();
-        Exercise[] exercises = catalog.getExercises();
-        for(Exercise exercise : exercises){
-            exerciseView.getItems().add(exercise.getName());
-        }
+        exerciseView.getItems().setAll(catalog.getAllExerciseNames());
         listStage.setScene(listScene);
         listStage.sizeToScene();
         listStage.showAndWait();

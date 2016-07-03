@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by mayma on 27.06.2016.
@@ -16,18 +17,29 @@ import java.util.LinkedList;
 public class Catalog {
     private static final String pathCatalog = "Catalog.xml";
     private Exercise[] exercises;
-    public Catalog(){
 
-    }
+    /**
+     * Eine Exercise bekommen wenn der Catalog bereits eingelesen wurde mit loadCatalogFromXML();
+     * @param i Der index dieser Aufgabe
+     * @return Die Ausgewaehlte Exercise
+     */
     public Exercise getExercise(int i){
-        if(i<0 || i>=exercises.length){
-            return null;
+        if(exercises!=null) {
+            if (i < 0 || i >= exercises.length) {
+                return null;
+            }
         }
         return exercises[i];
     }
-    public Exercise[] getExercises() {
-        return exercises;
+
+    public List<String> getAllExerciseNames(){
+        List<String> names = new LinkedList<>();
+        for(Exercise exercise : exercises){
+            names.add(exercise.getName());
+        }
+        return names;
     }
+
     public void loadCatalogFromXML(){
         try {
             DocumentBuilderFactory docbfac = DocumentBuilderFactory.newInstance();
@@ -45,6 +57,11 @@ public class Catalog {
         }
     }
 
+    /**
+     * Eine Exercise aus XML lesen
+     * @param exerciseElement Hier den Exercise-Knoten einer XML-datei uebergeben
+     * @return Gibt eine Object des Typs Exercise zurueck
+     */
     private Exercise readExerciseFromXML(Element exerciseElement){
         //Name
         String name=exerciseElement.getAttribute("name");
