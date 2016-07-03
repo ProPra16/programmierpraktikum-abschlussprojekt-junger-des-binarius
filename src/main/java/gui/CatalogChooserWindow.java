@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -16,9 +17,11 @@ import system.Exercise;
 
 
 public class CatalogChooserWindow {
+    private static final Image icon = new Image("images/ICON_Catalog.png");
     //Erstellt ListView-Fenster
     public static Exercise createWindow(Catalog catalog) {
         Stage listStage = new Stage();
+        listStage.getIcons().setAll(icon);
         listStage.setResizable(false);
         listStage.setTitle("Choose Exercise");
         VBox root = new VBox();

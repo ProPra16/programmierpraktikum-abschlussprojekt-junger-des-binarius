@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import system.Catalog;
 
@@ -21,7 +22,7 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/gui/layout.fxml"));
         Scene mainScene = new Scene(root);
-
+        primaryStage.getIcons().setAll(new Image("/images/ICON_TDDT.png"));
         primaryStage.setMinWidth(1000);
         primaryStage.setMinHeight(700);
         primaryStage.setWidth(1000);
