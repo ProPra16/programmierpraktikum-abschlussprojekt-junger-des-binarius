@@ -1,21 +1,37 @@
 .root {
     -fx-background-color: #404040;
 }
+
+/*Label Customization*/
+.label {
+    -fx-text-fill: LightGrey;
+}
+
+/*Button Customization*/
 .button {
     -fx-text-fill: LightGrey;
-    -fx-background-color: linear-gradient(#303030, #282828);
+    -fx-background-radius: 0px;
+    -fx-background-color: #282828;
 }
 .button:hover {
     -fx-text-fill: LightGrey;
-    -fx-background-color: linear-gradient(#282828, #303030);
+    -fx-background-color: #484848;
 }
+
+/*Text-area Customization*/
 .text-area {
     -fx-text-fill: LightGrey;
-    -fx-background-color: transparent, #404040, transparent, #404040;
+    -fx-background-color: transparent, #303030, transparent, #303030;
 }
 .text-area .content {
     -fx-background-color: #303030;
+    -fx-background-radius: 0px;
 }
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/*List-View Customization*/
 .list-view {
     -fx-padding: 0px;
     -fx-focus-color: transparent;
@@ -31,28 +47,55 @@
 }
 .list-view .list-cell:filled:selected:focused, .list-cell:filled:selected {
     -fx-text-fill: LightGrey;
-    -fx-background-color: #26466D;
+    -fx-background-color: #484848;
 }
+
+/*Menu-Bar Customization*/
 .menu-bar {
-    -fx-background-color: #383838
+    -fx-background-color: #383838;
 }
 .menu {
     -fx-background-color: #383838;
 }
 .menu:hover {
-    -fx-background-color: #26466D;
-}
-.menu .label {
-    -fx-text-fill: LightGrey;
+    -fx-background-color: #484848;
 }
 .context-menu {
     -fx-padding: 2,2,2,2;
-    -fx-background-color: #484848
+    -fx-background-color: #484848;
 }
 .menu-item {
     -fx-padding: 10, 10, 10, 10;
-    -fx-background-color: #383838
+    -fx-background-color: #383838;
 }
 .menu-item:hover {
-    -fx-background-color: #26466D;
+    -fx-background-color: #484848;
+}
+
+/*Scroll-Bar Customization*/
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+.scroll-bar:horizontal .increment-button, .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0 0 5 0;
+}
+.scroll-bar:vertical .increment-button, .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0 5 0 0;
+}
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #606060;
+    -fx-background-radius: 0px;
+}
+.scroll-bar .thumb:hover, .scroll-bar .thumb:pressed {
+    -fx-background-color: #808080;
+}
+.corner {
+    -fx-background-color: transparent;
 }
