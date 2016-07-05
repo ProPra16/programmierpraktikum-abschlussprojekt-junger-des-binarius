@@ -69,16 +69,19 @@ public class MainWindowController {
         }else if(actionEvent.getSource().equals(switchToRefactor)){
             currentStatus = currentStatus.switchToRefactor();
         }
-        updateStatusLabel();
     }
 
-    public void updateStatusLabel(){
-        switch (currentStatus.getStatus()){
-            case Status.RED: statusLabel.setTextFill(Color.valueOf("#FF0000"));statusLabel.setText("RED"); break;
-            case Status.GREEN: statusLabel.setTextFill(Color.valueOf("#00FF00"));statusLabel.setText("GREEN"); break;
-            case Status.REFACTOR: statusLabel.setTextFill(Color.ORANGE);statusLabel.setText("REFACTOR"); break;
-        }
+    public void setStatusLabel(String statusText, Color color){
+        statusLabel.setTextFill(color);
+        statusLabel.setText(statusText);
     }
+
+    public void setStatusButtonDisabled(boolean red,boolean green,boolean refactor){
+        switchToRed.setDisable(red);
+        switchToGreen.setDisable(green);
+        switchToRefactor.setDisable(refactor);
+    }
+
     public void addTextLineToOutputArea(String text) {
         outputArea.appendText(text+"\n");
     }

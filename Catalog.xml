@@ -17,9 +17,15 @@ public class class2 {
             <test name="RomanNumberConverterTest">
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class RomanNumbersTest {
+public class RomanNumberConverterTest {
     @Test
-    public void testSomething() {
+    public void testAdd() {
+        RomanNumber romanNumber = new RomanNumber();
+
+        int result = romanNumber.add(5,7);
+        int expected = (5+7);
+
+        assertTrue(expected == result);
     }
 }
             </test>
@@ -38,21 +44,31 @@ public class class2Test {
             <timetracking value="True" />
         </config>
     </exercise>
-    <exercise name="Römische Zahlen2">
+    <exercise name="TestExercise">
         <description>Konvertiert arabische in r¨omische Zahlen.</description>
         <classes>
-            <class name="RomanNumberConverter2">
-public class RomanNumberConverter2 {
+            <class name="RomanNumbers">
+public class RomanNumbers {
+
+	public int add(int zahl1,int zahl2){
+		return zahl1+zahl2;
+	}
 }
             </class>
         </classes>
         <tests>
-            <test name="RomanNumberConverter2Test">
+            <test name="RomanNumbersTest">
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class RomanNumbersTest2 {
+public class RomanNumbersTest {
     @Test
-    public void testSomething() {
+    public void testAdd() {
+		RomanNumbers romanNumbers = new RomanNumbers();
+
+		int result = romanNumbers.add(5,7);
+		int expected = (5+7);
+
+		assertTrue(expected == result);
     }
 }
             </test>
