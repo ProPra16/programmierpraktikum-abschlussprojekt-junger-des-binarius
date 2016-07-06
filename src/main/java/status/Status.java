@@ -1,6 +1,6 @@
 package status;
 
-import gui.controller.MainWindowController;
+import gui.StatusDisplay;
 import system.Classframe;
 import system.Exercise;
 
@@ -9,9 +9,9 @@ public abstract class Status {
     protected int status;
     protected Exercise exercise;
     protected Classframe currentClassframe;
-    protected MainWindowController mainWindow;
-    public Status(MainWindowController mainWindow,Exercise exercise){
-        this.mainWindow = mainWindow;
+    protected StatusDisplay statusDisplay;
+    public Status(StatusDisplay statusDisplay, Exercise exercise){
+        this.statusDisplay = statusDisplay;
         this.exercise = exercise;
     }
 
@@ -35,6 +35,6 @@ public abstract class Status {
     }
 
     protected void saveCurrentClassframe() {
-        currentClassframe.setFrameContent(mainWindow.getCode());
+        currentClassframe.setFrameContent(statusDisplay.getCode());
     }
 }

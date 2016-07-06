@@ -1,18 +1,18 @@
 package status;
 
-import gui.controller.MainWindowController;
+import gui.StatusDisplay;
 import javafx.scene.paint.Color;
 import system.Exercise;
 
 public class Refactor extends Status{
 
-    public Refactor(MainWindowController mainWindow, Exercise exercise){
-        super(mainWindow,exercise);
-        mainWindow.setStatusButtonDisabled(false,true,true);
-        mainWindow.setStatusLabel("REFACTOR", Color.TURQUOISE);
-        mainWindow.fillClassList(exercise.getClassNames());
+    public Refactor(StatusDisplay statusDisplay, Exercise exercise){
+        super(statusDisplay,exercise);
+        statusDisplay.displaySwitchStatusOptions(false,true,true);
+        statusDisplay.displayStatus("REFACTOR", Color.TURQUOISE);
+        statusDisplay.displayClassList(exercise.getClassNames());
         currentClassframe = exercise.getClassframes()[0];
-        mainWindow.fillCodeArea(currentClassframe.getFrameContent());
+        statusDisplay.displayCode(currentClassframe.getFrameContent());
     }
 
     @Override
@@ -22,9 +22,9 @@ public class Refactor extends Status{
 
     @Override
     public void changeClassframe(int index){
-        currentClassframe.setFrameContent(mainWindow.getCode());
+        currentClassframe.setFrameContent(statusDisplay.getCode());
         currentClassframe = exercise.getClassframes()[index];
-        mainWindow.fillCodeArea(currentClassframe.getFrameContent());
+        statusDisplay.displayCode(currentClassframe.getFrameContent());
     }
 
 }

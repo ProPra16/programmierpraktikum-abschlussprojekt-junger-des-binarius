@@ -1,23 +1,20 @@
 package gui.controller;
-// Created by User on 25.06.2016.
 
 import gui.CatalogChooserWindow;
-
 import gui.Main;
+import gui.StatusDisplay;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import status.Red;
 import status.Status;
 import system.Catalog;
 import system.Exercise;
-
 import java.util.List;
 
 
-public class MainWindowController {
+public class MainWindowController implements StatusDisplay {
     private Catalog catalog;
     private Status currentStatus;
     private Exercise currentExercise;
@@ -44,7 +41,7 @@ public class MainWindowController {
         }
     }
 
-    public void fillCodeArea(String code){
+    public void displayCode(String code){
         codeArea.setText(code);
     }
 
@@ -52,7 +49,7 @@ public class MainWindowController {
         return codeArea.getText();
     }
 
-    public void fillClassList(List<String> content){
+    public void displayClassList(List<String> content){
         classesListView.getItems().setAll(content);
     }
 
@@ -71,18 +68,18 @@ public class MainWindowController {
         }
     }
 
-    public void setStatusLabel(String statusText, Color color){
+    public void displayStatus(String statusText, Color color){
         statusLabel.setTextFill(color);
         statusLabel.setText(statusText);
     }
 
-    public void setStatusButtonDisabled(boolean red,boolean green,boolean refactor){
+    public void displaySwitchStatusOptions(boolean red, boolean green, boolean refactor){
         switchToRed.setDisable(red);
         switchToGreen.setDisable(green);
         switchToRefactor.setDisable(refactor);
     }
 
-    public void addTextLineToOutputArea(String text) {
+    public void displayFeedback(String text) {
         outputArea.appendText(text+"\n");
     }
 }
