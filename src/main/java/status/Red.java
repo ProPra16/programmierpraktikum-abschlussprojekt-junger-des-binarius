@@ -37,14 +37,14 @@ public class Red extends Status {
         if(!compiler.getCompilerResult().hasCompileErrors()){
             TestResult testResult = compiler.getTestResult();
             if (testResult.getNumberOfFailedTests() == 1) {
-                statusDisplay.displayFeedback("NOTATION: Exactly one test has failed, therefore switching from RED to GREEN");
+                statusDisplay.displayFeedback("NOTE: Exactly one test has failed, therefore switching from RED to GREEN");
                 return new Green(statusDisplay, exercise);
             } else {
-                statusDisplay.displayFeedback("ALERT: Exactly one failed test is needed to switch to status GREEN. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
+                statusDisplay.displayFeedback("ERROR: Exactly one failed test is needed to switch to status GREEN. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
                 return this;
             }
         }else{
-            statusDisplay.displayFeedback("ALERT: Could not compile tests, therefore switching from RED to GREEN");
+            statusDisplay.displayFeedback("NOTE: Could not compile tests, therefore switching from RED to GREEN");
             return new Green(statusDisplay, exercise);
         }
     }

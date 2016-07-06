@@ -51,6 +51,24 @@ public class Exercise {
         return names;
     }
 
+    public void saveCurrentContent() {
+        for(int i=0;i<classframes.length;i++) {
+            classframes[i].saveContent();
+        }
+        for(int j=0;j<testframes.length;j++) {
+            testframes[j].saveContent();
+        }
+    }
+
+    public void restoreSavedContent() {
+        for(int i=0;i<classframes.length;i++) {
+            classframes[i].restoreContent();
+        }
+        for(int j=0;j<testframes.length;j++) {
+            testframes[j].restoreContent();
+        }
+    }
+
     public JavaStringCompiler getCompiler() {
         List<CompilationUnit> compilationUnits = new LinkedList<>();
         for(Classframe classframe:classframes) {

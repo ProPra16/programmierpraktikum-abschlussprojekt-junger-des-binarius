@@ -39,6 +39,7 @@ public class MainWindowController implements StatusDisplay {
         if (currentExercise!=null){
             currentStatus = new Red(this,currentExercise);
         }
+        outputArea.clear();
     }
 
     public void displayCode(String code){

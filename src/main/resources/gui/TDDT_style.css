@@ -102,3 +102,8 @@
 .corner {
     -fx-background-color: transparent;
 }
+
+/*Alert-Dialog Customization*/
+.dialog-pane:header .header-panel {
+    -fx-background-color: #383838;
+}
