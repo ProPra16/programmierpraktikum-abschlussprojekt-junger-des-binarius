@@ -11,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import system.Catalog;
 import system.Exercise;
+
 import java.net.URL;
 
 public class CatalogChooserWindow {

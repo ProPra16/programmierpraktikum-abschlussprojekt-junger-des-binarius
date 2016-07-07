@@ -1,15 +1,12 @@
 package status;
 
 import gui.AlertWindow;
-import gui.Main;
 import gui.StatusDisplay;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
 import javafx.scene.paint.Color;
 import system.Exercise;
-
-import java.net.URL;
+import vk.core.api.CompilerResult;
+import vk.core.api.JavaStringCompiler;
+import vk.core.api.TestResult;
 
 public class Green extends Status{
 
@@ -37,13 +34,13 @@ public class Green extends Status{
 
     @Override
     public Status switchToRed() {
-        boolean confirmationResult = AlertWindow.confirmation("You are trying to switch back to Status RED. \nTherefore the current progress in status GREEN will be erased.","Do you want to continue?");
+        boolean confirmationResult = AlertWindow.confirmation("You are trying to switch back to status RED. \nTherefore the current progress in status GREEN will be erased.","Do you want to continue?");
         if(confirmationResult) {
             exercise.restoreSavedContent();
-            statusDisplay.displayFeedback("NOTE: Switched back to RED. New Progress erased and former Content restored.");
+            statusDisplay.displayFeedback("NOTE: Switched back to status RED. New progress erased and former content restored.");
             return new Red(statusDisplay,exercise);
         } else {
-            statusDisplay.displayFeedback("NOTE: Switching back to RED cancelled.");
+            statusDisplay.displayFeedback("NOTE: Switching back to status RED cancelled.");
             return this;
         }
     }
@@ -51,7 +48,23 @@ public class Green extends Status{
     @Override
     public Status switchToRefactor() {
         saveCurrentClassframe();
-        return this;
+        JavaStringCompiler compiler = exercise.getCompiler();
+        compiler.compileAndRunTests();
+        CompilerResult compilerResult = compiler.getCompilerResult();
+        if(!compilerResult.hasCompileErrors()) {
+            TestResult testResult = compiler.getTestResult();
+            if(testResult.getNumberOfFailedTests()==0) {
+                exercise.saveCurrentContent();
+                statusDisplay.displayFeedback("NOTE: Compilation and testing successful. Therefore switching to status REFACTOR.");
+                return new Refactor(statusDisplay,exercise);
+            } else {
+                statusDisplay.displayFeedback("ERROR: To switch to status REFACTOR all tests must be successful. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
+                return this;
+            }
+        } else {
+            statusDisplay.displayFeedback("ERROR: Could not compile. Switching to status REFACTOR is not possible.");
+            return this;
+        }
     }
 
 }

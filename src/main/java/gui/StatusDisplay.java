@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.scene.paint.Color;
+
 import java.util.List;
 
 public interface StatusDisplay {
