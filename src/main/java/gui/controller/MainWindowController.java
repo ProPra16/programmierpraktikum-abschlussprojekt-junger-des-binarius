@@ -1,6 +1,7 @@
 package gui.controller;
 
 import gui.CatalogChooserWindow;
+import gui.ExerciseDescriptionWindow;
 import gui.Main;
 import gui.StatusDisplay;
 import javafx.event.ActionEvent;
@@ -39,7 +40,7 @@ public class MainWindowController implements StatusDisplay {
     }
 
     public void showDescription(){
-
+        ExerciseDescriptionWindow.createWindow(currentExercise);
     }
 
     public void chooseExerciseFromCatalog() {

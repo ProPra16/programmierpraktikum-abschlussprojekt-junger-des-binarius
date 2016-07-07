@@ -19,7 +19,7 @@
         <Menu text="Catalog">
             <MenuItem text="Load Exercise" onAction="#chooseExerciseFromCatalog"/>
         </Menu>
-        <Menu>
+        <Menu text="Exercise">
             <MenuItem text="Show Description" onAction="#showDescription"/>
         </Menu>
     </MenuBar>
