@@ -1,0 +1,31 @@
+Protokollant: Marius May
+
+Marius May, Can Schwarzkamp, Nils Kleine Klausing sind anwesend.
+
+Insgesamt wurde in der Woche bis zu diesem Protokoll weiterhin zusammengearbeitet 
+und gemeinsam Loesungen fuer die Herausforderungen gesucht.
+
+Alle Ziele, die wir im letzten Protokoll zusammengetragen haben, wurden erreicht:
+
+ - Es wurde sich mit der Compiler-Bibliothek auseinandergesetzt und sie wurde per
+   Gradle in das Programm eingebunden.
+
+ - Alle drei Statusse Red, Green, Refactor wurden ausprogrammiert und die 
+   Statuswechsel funktionieren mit Abfrage der jeweiligen Bedingungen.
+
+ - Die GUI funktioniert und arbeitet mit den Statussen zusammen. Es sind nur noch 
+   kleine Veraenderungen fuer die Erweiterungen noetig.
+
+
+Aufgaben fuer die naechste Woche:
+
+ - Erweiterungen Babysteps und Tracking sollen implementiert werden.
+ 
+ - README ergaenzen.
+ 
+ - Bericht und Handbuch erstellen.
+ 
+ - Tests schreiben um das Program zu pruefen.
+
+Es wird weiterhin moeglichst oft zusammengearbeitet. Die Angabe der Namen in den 
+Commits hat sich bewaehrt und wird daher fortgefuehrt.
