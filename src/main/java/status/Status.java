@@ -1,6 +1,7 @@
 package status;
 
 import gui.StatusDisplay;
+import status.babystep.BabystepControls;
 import system.Classframe;
 import system.Exercise;
 
@@ -10,30 +11,37 @@ public abstract class Status {
     protected Exercise exercise;
     protected Classframe currentClassframe;
     protected StatusDisplay statusDisplay;
-    public Status(StatusDisplay statusDisplay, Exercise exercise){
+    protected BabystepControls babystepControls;
+    public Status(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls){
         this.statusDisplay = statusDisplay;
         this.exercise = exercise;
+        this.babystepControls = babystepControls;
     }
 
     public abstract int getStatus();
 
     public abstract void changeClassframe(int index);
 
-    public Status switchToRed() {
+    public boolean switchToRed() {
         saveCurrentClassframe();
-        return this;
+        return false;
     }
 
-    public Status switchToGreen() {
+    public boolean switchToGreen() {
         saveCurrentClassframe();
-        return this;
+        return false;
     }
 
-    public Status switchToRefactor() {
+    public boolean switchToRefactor() {
         saveCurrentClassframe();
-        return this;
+        return false;
     }
 
+    public Status timeExpired(){
+        saveCurrentClassframe();
+        System.out.println("test");
+        return this;
+    }
     protected void saveCurrentClassframe() {
         currentClassframe.setFrameContent(statusDisplay.getCode());
     }

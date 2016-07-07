@@ -12,14 +12,18 @@ public class Exercise {
     private String description;
     private Classframe[] classframes;
     private Classframe[] testframes;
-
+    private long babystepTime;
     public Exercise(String name,String description,Classframe[] classframes,Classframe[] testframes){
         this.name = name;
         this.description = description;
         this.classframes = classframes;
         this.testframes = testframes;
+        this.babystepTime = 10;
     }
 
+    public long getBabystepTime(){
+        return babystepTime;
+    }
     public String getName() {
         return name;
     }

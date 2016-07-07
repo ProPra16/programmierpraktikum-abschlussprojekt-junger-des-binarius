@@ -16,4 +16,6 @@ public interface StatusDisplay {
     void displaySwitchStatusOptions(boolean red, boolean green, boolean refactor);
 
     void displayFeedback(String text);
+
+    void displayRemainingTime(double timeRemaining);
 }

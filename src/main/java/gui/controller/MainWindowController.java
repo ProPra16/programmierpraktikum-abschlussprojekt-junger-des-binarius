@@ -13,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import status.Red;
 import status.Status;
+import status.StatusController;
 import system.Catalog;
 import system.Exercise;
 
@@ -21,11 +22,10 @@ import java.util.List;
 
 public class MainWindowController implements StatusDisplay {
     private Catalog catalog;
-    private Status currentStatus;
-    private Exercise currentExercise;
+    private StatusController statusController;
     private Main main;
     @FXML
-    private Label statusLabel;
+    private Label statusLabel,countdownLabel;
     @FXML
     private Button switchToGreen, switchToRefactor, switchToRed;
     @FXML
@@ -40,13 +40,13 @@ public class MainWindowController implements StatusDisplay {
     }
 
     public void showDescription(){
-        ExerciseDescriptionWindow.createWindow(currentExercise);
+        statusController.showDescription();
     }
 
     public void chooseExerciseFromCatalog() {
-        currentExercise = CatalogChooserWindow.createWindow(catalog);
-        if (currentExercise!=null) {
-            currentStatus = new Red(this, currentExercise);
+        Exercise exercise = CatalogChooserWindow.createWindow(catalog);
+        if (exercise!=null) {
+            statusController = new StatusController(this,exercise);
             outputArea.clear();
         }
     }
@@ -61,20 +61,21 @@ public class MainWindowController implements StatusDisplay {
 
     public void displayClassList(List<String> content){
         classesListView.getItems().setAll(content);
+        classesListView.getSelectionModel().select(0);
     }
 
     public void selectClass(){
         int index = classesListView.getFocusModel().getFocusedIndex();
-        currentStatus.changeClassframe(index);
+        statusController.changeClassframe(index);
     }
 
     public void switchStatus(ActionEvent actionEvent){
         if(actionEvent.getSource().equals(switchToRed)){
-            currentStatus = currentStatus.switchToRed();
+            statusController.switchToRed();
         }else if(actionEvent.getSource().equals(switchToGreen)){
-            currentStatus = currentStatus.switchToGreen();
+            statusController.switchToGreen();
         }else if(actionEvent.getSource().equals(switchToRefactor)){
-            currentStatus = currentStatus.switchToRefactor();
+            statusController.switchToRefactor();
         }
     }
 
@@ -91,5 +92,10 @@ public class MainWindowController implements StatusDisplay {
 
     public void displayFeedback(String text) {
         outputArea.appendText(text+"\n");
+    }
+
+    @Override
+    public void displayRemainingTime(double timeRemaining){
+        countdownLabel.setText("Remaining Time: "+ timeRemaining + " sec");
     }
 }

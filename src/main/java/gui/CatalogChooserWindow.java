@@ -39,6 +39,7 @@ public class CatalogChooserWindow {
         listStage.initModality(Modality.WINDOW_MODAL);
         listStage.initOwner(Main.primaryStage);
         exerciseView.getItems().setAll(catalog.getAllExerciseNames());
+        exerciseView.getSelectionModel().select(0);
         listStage.setScene(listScene);
         listStage.sizeToScene();
         listStage.showAndWait();

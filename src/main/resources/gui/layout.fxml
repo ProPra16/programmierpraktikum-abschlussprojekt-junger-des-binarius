@@ -44,6 +44,7 @@
             <Button fx:id="switchToRed" text="-> RED" prefWidth="150" onAction="#switchStatus"/>
             <Button fx:id="switchToGreen" text="-> GREEN" prefWidth="150" onAction="#switchStatus"/>
             <Button fx:id="switchToRefactor" text="-> REFACTOR" prefWidth="150" onAction="#switchStatus"/>
+            <Label fx:id="countdownLabel" text="Remaining Time: " />
         </VBox>
         <TextArea fx:id="codeArea" prefWidth="10000" prefHeight="10000"
                   style="-fx-font-family:monospace; -fx-font-size:18px;"/>

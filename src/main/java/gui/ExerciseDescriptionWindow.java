@@ -26,6 +26,7 @@ public class ExerciseDescriptionWindow {
         vBox.getChildren().add(descriptionArea);
         Scene scene = new Scene(vBox);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 }
