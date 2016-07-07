@@ -34,6 +34,10 @@ public class MainWindowController implements StatusDisplay {
         chooseExerciseFromCatalog();
     }
 
+    public void showDescription(){
+
+    }
+
     public void chooseExerciseFromCatalog() {
         currentExercise = CatalogChooserWindow.createWindow(catalog);
         if (currentExercise!=null){
