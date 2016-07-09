@@ -1,0 +1,32 @@
+<excercises>
+    <exercise name="Exercise1">
+        <description>Description1</description>
+        <classes>
+            <class name="Class11">Classframe11</class>
+            <class name="Class12">Classframe12</class>
+        </classes>
+        <tests>
+            <test name="Class11Test">Testframe11</test>
+            <test name="Class12Test">Testframe12</test>
+        </tests>
+        <config>
+            <babysteps statusSwitch="false" time="1" />
+            <timetracking value="true" />
+        </config>
+    </exercise>
+    <exercise name="Exercise2">
+        <description>Description2</description>
+        <classes>
+            <class name="Class21">Classframe21</class>
+            <class name="Class22">Classframe22</class>
+        </classes>
+        <tests>
+            <test name="Class21Test">Testframe21</test>
+            <test name="Class22Test">Testframe22</test>
+        </tests>
+        <config>
+            <babysteps statusSwitch="true" time="2" />
+            <timetracking value="false" />
+        </config>
+    </exercise>
+</excercises>
