@@ -1,9 +1,8 @@
 package status;
 
-import gui.ExerciseDescriptionWindow;
+import gui.PopupWindow;
 import gui.StatusDisplay;
 import javafx.event.EventHandler;
-import status.babystep.BabystepControls;
 import status.babystep.Babystepper;
 import status.babystep.BabystepperEvent;
 import system.Exercise;
@@ -26,19 +25,19 @@ public class StatusController implements EventHandler<BabystepperEvent>{
         babystepper = null;
     }
 
-    public void tryswitchToRed() {
+    public void trySwitchToRed() {
         if(currentStatus.switchToRed()){
             switchWithoutCheck(Status.RED);
         }
     }
 
-    public void tryswitchToGreen() {
+    public void trySwitchToGreen() {
         if(currentStatus.switchToGreen()){
             switchWithoutCheck(Status.GREEN);
         }
     }
 
-    public void tryswitchToRefactor() {
+    public void trySwitchToRefactor() {
         if(currentStatus.switchToRefactor()){
             switchWithoutCheck(Status.REFACTOR);
         }
@@ -49,7 +48,7 @@ public class StatusController implements EventHandler<BabystepperEvent>{
     }
 
     public void showDescription(){
-        ExerciseDescriptionWindow.createWindow(exercise);
+        PopupWindow.showExerciseDescriptionWindow(exercise);
     }
 
     protected void switchWithoutCheck(int status){

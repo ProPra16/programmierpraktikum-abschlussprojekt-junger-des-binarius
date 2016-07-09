@@ -1,6 +1,6 @@
 package status;
 
-import gui.AlertWindow;
+import gui.PopupWindow;
 import gui.StatusDisplay;
 import javafx.scene.paint.Color;
 import status.babystep.BabystepControls;
@@ -37,7 +37,7 @@ public class Green extends Status{
     @Override
     public boolean switchToRed() {
         babystepControls.stop();
-        boolean confirmationResult = AlertWindow.confirmation("You are trying to switch back to status RED. \nTherefore the current progress in status GREEN will be erased.","Do you want to continue?");
+        boolean confirmationResult = PopupWindow.showConfirmationWindow("You are trying to switch back to status RED. \nTherefore the current progress in status GREEN will be erased.","Do you want to continue?");
         babystepControls.start();
         if(confirmationResult) {
             exercise.restoreSavedContent();

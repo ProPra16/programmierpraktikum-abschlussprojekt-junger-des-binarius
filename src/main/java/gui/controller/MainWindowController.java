@@ -1,9 +1,6 @@
 package gui.controller;
 
-import gui.CatalogChooserWindow;
-import gui.ExerciseDescriptionWindow;
-import gui.Main;
-import gui.StatusDisplay;
+import gui.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,7 +41,7 @@ public class MainWindowController implements StatusDisplay {
     }
 
     public void chooseExerciseFromCatalog() {
-        Exercise exercise = CatalogChooserWindow.createWindow(catalog);
+        Exercise exercise = PopupWindow.showCatalogChooserWindow(catalog);
         if (exercise!=null) {
             if(statusController!=null)statusController.closeExercise();
             statusController = new StatusController(this,exercise);
@@ -72,11 +69,11 @@ public class MainWindowController implements StatusDisplay {
 
     public void switchStatus(ActionEvent actionEvent){
         if(actionEvent.getSource().equals(switchToRed)){
-            statusController.tryswitchToRed();
+            statusController.trySwitchToRed();
         }else if(actionEvent.getSource().equals(switchToGreen)){
-            statusController.tryswitchToGreen();
+            statusController.trySwitchToGreen();
         }else if(actionEvent.getSource().equals(switchToRefactor)){
-            statusController.tryswitchToRefactor();
+            statusController.trySwitchToRefactor();
         }
     }
 
