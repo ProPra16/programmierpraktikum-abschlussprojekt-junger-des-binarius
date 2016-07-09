@@ -32,7 +32,7 @@ public class MainWindowController implements StatusDisplay {
 
     public void initialize(){
         catalog = new Catalog();
-        catalog.loadCatalogFromXML();
+        catalog.loadCatalogFromXML(null);
         chooseExerciseFromCatalog();
     }
 

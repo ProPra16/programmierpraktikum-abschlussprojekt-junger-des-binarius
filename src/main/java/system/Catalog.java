@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Catalog {
-    private static final String pathCatalog = "Catalog.xml";
+    private static final File catalogFileXML = new File("Catalog.xml");
     private Exercise[] exercises;
 
     /**
@@ -36,11 +36,16 @@ public class Catalog {
         return names;
     }
 
-    public void loadCatalogFromXML(){
+    public void loadCatalogFromXML(File alternativeCatalogFileXML){
         try {
             DocumentBuilderFactory docbfac = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = docbfac.newDocumentBuilder();
-            Document document = builder.parse(new File(pathCatalog));
+            Document document;
+            if(alternativeCatalogFileXML==null) {
+                document = builder.parse(catalogFileXML);
+            } else {
+                document = builder.parse(alternativeCatalogFileXML);
+            }
             document.normalize();
             Element root = document.getDocumentElement();
             NodeList XMLexercises = root.getElementsByTagName("exercise");
