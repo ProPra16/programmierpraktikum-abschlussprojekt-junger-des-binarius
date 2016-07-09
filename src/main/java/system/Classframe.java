@@ -2,25 +2,31 @@ package system;
 
 import vk.core.api.CompilationUnit;
 
+import java.util.Stack;
+
 public class Classframe {
     private String name;
     private String frameContent;
     private boolean isTest;
-    private String savedContent;
+    private Stack<String> savedContent;
 
     public Classframe(String name,String frameContent,boolean isTest){
         this.name = name;
         this.frameContent = frameContent;
-        saveContent();
         this.isTest = isTest;
+        savedContent = new Stack<String>();
+    }
+
+    public void clearAllSavedContent(){
+        savedContent.clear();
     }
 
     public void saveContent(){
-        savedContent = frameContent;
+        savedContent.push(frameContent);
     }
 
     public void restoreContent(){
-        frameContent = savedContent;
+        frameContent = savedContent.pop();
     }
 
     public void setFrameContent(String frameContent){

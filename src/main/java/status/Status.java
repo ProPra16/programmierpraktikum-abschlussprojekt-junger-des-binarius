@@ -37,10 +37,9 @@ public abstract class Status {
         return false;
     }
 
-    public Status timeExpired(){
+    public int timeExpired(){
         saveCurrentClassframe();
-        System.out.println("test");
-        return this;
+        return getStatus();
     }
     protected void saveCurrentClassframe() {
         currentClassframe.setFrameContent(statusDisplay.getCode());

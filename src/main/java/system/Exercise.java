@@ -13,12 +13,18 @@ public class Exercise {
     private Classframe[] classframes;
     private Classframe[] testframes;
     private long babystepTime;
-    public Exercise(String name,String description,Classframe[] classframes,Classframe[] testframes){
+    private boolean babystepStatusSwitchActivated;
+    public Exercise(String name,String description,Classframe[] classframes,Classframe[] testframes,long babystepTime, boolean babystepStatusSwitchActivated){
         this.name = name;
         this.description = description;
         this.classframes = classframes;
         this.testframes = testframes;
-        this.babystepTime = 10;
+        this.babystepTime = babystepTime;
+        this.babystepStatusSwitchActivated=babystepStatusSwitchActivated;
+    }
+
+    public boolean getBabystepStatusSwitchActivated(){
+        return babystepStatusSwitchActivated;
     }
 
     public long getBabystepTime(){
@@ -54,6 +60,15 @@ public class Exercise {
             names.add(frame.getName());
         }
         return names;
+    }
+
+    public void clearAllSavedContent(){
+        for(int i=0;i<classframes.length;i++) {
+            classframes[i].clearAllSavedContent();
+        }
+        for(int j=0;j<testframes.length;j++) {
+            testframes[j].clearAllSavedContent();
+        }
     }
 
     public void saveCurrentContent() {

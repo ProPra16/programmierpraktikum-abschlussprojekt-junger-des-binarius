@@ -98,6 +98,13 @@ public class Catalog {
         else System.out.println("Exercise: " + name + " has no tests");
         Classframe[] testframearray = testframes.toArray(new Classframe[testframes.size()]);
 
-        return new Exercise(name,description,classframearray,testframearray);
+        //Config
+        NodeList configlist = exerciseElement.getElementsByTagName("config");
+        Element config = (Element)configlist.item(0);
+        NodeList babystepslist = config.getElementsByTagName("babysteps");
+        Element babystep = (Element)babystepslist.item(0);
+        boolean babystepStatusSwitchActivated = babystep.getAttribute("statusSwitch").equals("true");
+        long babysteptime = Long.valueOf(babystep.getAttribute("time"));
+        return new Exercise(name,description,classframearray,testframearray,babysteptime,babystepStatusSwitchActivated);
     }
 }

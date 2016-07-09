@@ -17,6 +17,7 @@ public class Red extends Status {
         currentClassframe = exercise.getTestframes()[0];
         statusDisplay.displayCode(currentClassframe.getFrameContent());
         babystepControls.restart();
+        exercise.saveCurrentContent();
     }
 
     @Override
@@ -49,5 +50,12 @@ public class Red extends Status {
             statusDisplay.displayFeedback("NOTE: Could not compile tests, therefore switching from RED to GREEN");
             return true;
         }
+    }
+
+    @Override
+    public int timeExpired() {
+        exercise.restoreSavedContent();
+        statusDisplay.displayFeedback("ALERT: Time is Up! New Code was erased.");
+        return getStatus();
     }
 }

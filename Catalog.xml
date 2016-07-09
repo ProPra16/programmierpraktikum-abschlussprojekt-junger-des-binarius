@@ -40,8 +40,8 @@ public class class2Test {
             </test>
         </tests>
         <config>
-            <babysteps value="False" />
-            <timetracking value="True" />
+            <babysteps statusSwitch="false" time="10" />
+            <timetracking value="true" />
         </config>
     </exercise>
     <exercise name="TestExercise">
@@ -74,8 +74,8 @@ public class RomanNumbersTest {
             </test>
         </tests>
         <config>
-            <babysteps value="True" time="2:00" />
-            <timetracking value="True" />
+            <babysteps statusSwitch="true" time="10" />
+            <timetracking value="true" />
         </config>
     </exercise>
 </excercises>

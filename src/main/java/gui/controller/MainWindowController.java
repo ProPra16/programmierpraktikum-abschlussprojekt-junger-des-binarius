@@ -46,6 +46,7 @@ public class MainWindowController implements StatusDisplay {
     public void chooseExerciseFromCatalog() {
         Exercise exercise = CatalogChooserWindow.createWindow(catalog);
         if (exercise!=null) {
+            if(statusController!=null)statusController.closeExercise();
             statusController = new StatusController(this,exercise);
             outputArea.clear();
         }
@@ -71,11 +72,11 @@ public class MainWindowController implements StatusDisplay {
 
     public void switchStatus(ActionEvent actionEvent){
         if(actionEvent.getSource().equals(switchToRed)){
-            statusController.switchToRed();
+            statusController.tryswitchToRed();
         }else if(actionEvent.getSource().equals(switchToGreen)){
-            statusController.switchToGreen();
+            statusController.tryswitchToGreen();
         }else if(actionEvent.getSource().equals(switchToRefactor)){
-            statusController.switchToRefactor();
+            statusController.tryswitchToRefactor();
         }
     }
 

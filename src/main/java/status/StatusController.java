@@ -17,7 +17,7 @@ public class StatusController implements EventHandler<BabystepperEvent>{
     public StatusController(StatusDisplay statusDisplay, Exercise exercise){
         this.statusDisplay = statusDisplay;
         this.exercise = exercise;
-        babystepper = new Babystepper(statusDisplay,this,exercise.getBabystepTime());
+        babystepper = new Babystepper(statusDisplay,this,exercise.getBabystepTime(),exercise.getBabystepStatusSwitchActivated());
         currentStatus = new Red(statusDisplay,exercise,babystepper);
     }
 
@@ -26,21 +26,21 @@ public class StatusController implements EventHandler<BabystepperEvent>{
         babystepper = null;
     }
 
-    public void switchToRed() {
+    public void tryswitchToRed() {
         if(currentStatus.switchToRed()){
-            currentStatus = new Red(statusDisplay,exercise,babystepper);
+            switchWithoutCheck(Status.RED);
         }
     }
 
-    public void switchToGreen() {
+    public void tryswitchToGreen() {
         if(currentStatus.switchToGreen()){
-            currentStatus = new Green(statusDisplay,exercise,babystepper);
+            switchWithoutCheck(Status.GREEN);
         }
     }
 
-    public void switchToRefactor() {
+    public void tryswitchToRefactor() {
         if(currentStatus.switchToRefactor()){
-            currentStatus = new Refactor(statusDisplay,exercise,babystepper);
+            switchWithoutCheck(Status.REFACTOR);
         }
     }
 
@@ -52,8 +52,19 @@ public class StatusController implements EventHandler<BabystepperEvent>{
         ExerciseDescriptionWindow.createWindow(exercise);
     }
 
+    protected void switchWithoutCheck(int status){
+        switch (status) {
+            case Status.RED:
+                currentStatus = new Red(statusDisplay, exercise, babystepper); break;
+            case Status.GREEN:
+                currentStatus = new Green(statusDisplay, exercise, babystepper); break;
+            case Status.REFACTOR:
+                currentStatus = new Refactor(statusDisplay, exercise, babystepper); break;
+        }
+
+    }
     @Override
     public void handle(BabystepperEvent event) {
-        currentStatus = currentStatus.timeExpired();
+        switchWithoutCheck(currentStatus.timeExpired());
     }
 }

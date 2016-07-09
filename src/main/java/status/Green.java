@@ -41,6 +41,7 @@ public class Green extends Status{
         babystepControls.start();
         if(confirmationResult) {
             exercise.restoreSavedContent();
+            exercise.restoreSavedContent();
             statusDisplay.displayFeedback("NOTE: Switched back to status RED. New progress erased and former content restored.");
             return true;
         } else {
@@ -58,7 +59,6 @@ public class Green extends Status{
         if(!compilerResult.hasCompileErrors()) {
             TestResult testResult = compiler.getTestResult();
             if(testResult.getNumberOfFailedTests()==0) {
-                exercise.saveCurrentContent();
                 statusDisplay.displayFeedback("NOTE: Compilation and testing successful. Therefore switching to status REFACTOR.");
                 return true;
             } else {
@@ -71,4 +71,11 @@ public class Green extends Status{
         }
     }
 
+    @Override
+    public int timeExpired() {
+        exercise.restoreSavedContent();
+        exercise.restoreSavedContent();
+        statusDisplay.displayFeedback("ALERT: Time is Up! Switching back to the beginning of Red");
+        return Status.RED;
+    }
 }

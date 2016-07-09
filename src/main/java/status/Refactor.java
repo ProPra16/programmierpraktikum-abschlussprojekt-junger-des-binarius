@@ -17,7 +17,9 @@ public class Refactor extends Status{
         statusDisplay.displayClassList(exercise.getClassNames());
         currentClassframe = exercise.getClassframes()[0];
         statusDisplay.displayCode(currentClassframe.getFrameContent());
+        babystepControls.restart();
         babystepControls.stop();
+        exercise.saveCurrentContent();
     }
 
     @Override
@@ -41,8 +43,8 @@ public class Refactor extends Status{
         if(!compilerResult.hasCompileErrors()) {
             TestResult testResult = compiler.getTestResult();
             if(testResult.getNumberOfFailedTests()==0) {
-                exercise.saveCurrentContent();
                 statusDisplay.displayFeedback("NOTE: Compilation and testing successful. Therefore switching to status RED.");
+                exercise.clearAllSavedContent();
                 return true;
             } else {
                 statusDisplay.displayFeedback("ERROR: To switch to status RED all tests must be successful. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
