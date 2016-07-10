@@ -11,6 +11,7 @@ import java.net.URL;
 
 public class Main extends Application {
     public static Stage primaryStage;
+    public static final URL stylesheet = Main.class.getResource("/gui/TDDT_style.css");
     public static void main(String[] args) {
         launch(args);
     }
@@ -18,7 +19,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        URL stylesheet = getClass().getResource("/gui/TDDT_style.css");
         Parent root = FXMLLoader.load(getClass().getResource("/gui/layout.fxml"));
         Scene mainScene = new Scene(root);
         mainScene.getStylesheets().add(stylesheet.toExternalForm());

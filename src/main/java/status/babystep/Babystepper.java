@@ -12,12 +12,14 @@ public class Babystepper implements BabystepControls{
     private long timeRemaining;
     private long countdownLength;
     private long lastUpdateTime;
+    private boolean running;
     private EventHandler<BabystepperEvent> eventHandler;
     public Babystepper(StatusDisplay statusDisplay, EventHandler<BabystepperEvent> eventHandler, long countdownLength,boolean statusSwitchActivated){
         this.statusDisplay = statusDisplay;
         this.eventHandler = eventHandler;
         this.countdownLength = countdownLength*1000;
         this.statusSwitchActivated=statusSwitchActivated;
+        running = false;
         this.animationTimer=new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -26,8 +28,13 @@ public class Babystepper implements BabystepControls{
         };
     }
 
+    public boolean running(){
+        return running;
+    }
+
     public void start(){
         lastUpdateTime=System.currentTimeMillis();
+        running = true;
         animationTimer.start();
     }
 
@@ -40,6 +47,7 @@ public class Babystepper implements BabystepControls{
 
     public void stop(){
         animationTimer.stop();
+        running=false;
     }
 
     private void update(){

@@ -40,6 +40,10 @@ public class MainWindowController implements StatusDisplay {
         statusController.showDescription();
     }
 
+    public void showTracking(){
+        statusController.showTracking();
+    }
+
     public void chooseExerciseFromCatalog() {
         Exercise exercise = PopupWindow.showCatalogChooserWindow(catalog);
         if (exercise!=null) {

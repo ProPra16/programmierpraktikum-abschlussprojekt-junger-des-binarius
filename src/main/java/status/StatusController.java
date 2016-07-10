@@ -5,21 +5,30 @@ import gui.StatusDisplay;
 import javafx.event.EventHandler;
 import status.babystep.Babystepper;
 import status.babystep.BabystepperEvent;
+import status.tracking.Tracker;
 import system.Exercise;
 
 public class StatusController implements EventHandler<BabystepperEvent>{
     private StatusDisplay statusDisplay;
     private Babystepper babystepper;
     private Exercise exercise;
+    private Tracker tracker;
     private Status currentStatus;
 
     public StatusController(StatusDisplay statusDisplay, Exercise exercise){
         this.statusDisplay = statusDisplay;
         this.exercise = exercise;
+        tracker = new Tracker();
         babystepper = new Babystepper(statusDisplay,this,exercise.getBabystepTime(),exercise.getBabystepStatusSwitchActivated());
-        currentStatus = new Red(statusDisplay,exercise,babystepper);
+        currentStatus = new Red(statusDisplay,exercise,babystepper,tracker);
     }
-
+    public void showTracking(){
+        boolean running = babystepper.running();
+        babystepper.stop();
+        tracker.showData();
+        if(running)
+            babystepper.start();
+    }
     public void closeExercise(){
         babystepper.stop();
         babystepper = null;
@@ -54,11 +63,11 @@ public class StatusController implements EventHandler<BabystepperEvent>{
     protected void switchWithoutCheck(int status){
         switch (status) {
             case Status.RED:
-                currentStatus = new Red(statusDisplay, exercise, babystepper); break;
+                currentStatus = new Red(statusDisplay, exercise, babystepper,tracker); break;
             case Status.GREEN:
-                currentStatus = new Green(statusDisplay, exercise, babystepper); break;
+                currentStatus = new Green(statusDisplay, exercise, babystepper,tracker); break;
             case Status.REFACTOR:
-                currentStatus = new Refactor(statusDisplay, exercise, babystepper); break;
+                currentStatus = new Refactor(statusDisplay, exercise, babystepper,tracker); break;
         }
 
     }

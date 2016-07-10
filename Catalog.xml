@@ -74,7 +74,7 @@ public class RomanNumbersTest {
             </test>
         </tests>
         <config>
-            <babysteps statusSwitch="true" time="10" />
+            <babysteps statusSwitch="true" time="100" />
             <timetracking value="true" />
         </config>
     </exercise>

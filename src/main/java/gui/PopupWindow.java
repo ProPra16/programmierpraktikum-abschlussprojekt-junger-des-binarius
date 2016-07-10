@@ -14,7 +14,6 @@ import system.Exercise;
 import java.net.URL;
 
 public class PopupWindow {
-    private static final URL stylesheet = Main.class.getResource("/gui/TDDT_style.css");
     private static final Image CatalogIcon = new Image("images/ICON_Catalog.png");
     private static final Image AlertIcon = new Image("images/ICON_Alert.png");
 
@@ -23,7 +22,7 @@ public class PopupWindow {
         stage.getIcons().setAll(CatalogIcon);
         stage.setResizable(false);
         VBox vBox = new VBox();
-        vBox.getStylesheets().add(stylesheet.toExternalForm());
+        vBox.getStylesheets().add(Main.stylesheet.toExternalForm());
         TextArea descriptionArea = new TextArea();
         descriptionArea.setEditable(false);
         descriptionArea.setText("Exercise:\n"+exercise.getName()+"\n\n"+"Description:\n"+exercise.getDescription());
@@ -51,7 +50,7 @@ public class PopupWindow {
         loadButton.setPrefWidth(Double.MAX_VALUE);
         root.getChildren().addAll(exerciseView, loadButton);
         Scene listScene = new Scene(root);
-        listScene.getStylesheets().add(stylesheet.toExternalForm());
+        listScene.getStylesheets().add(Main.stylesheet.toExternalForm());
         listStage.initModality(Modality.WINDOW_MODAL);
         listStage.initOwner(Main.primaryStage);
         exerciseView.getItems().setAll(catalog.getAllExerciseNames());
@@ -67,7 +66,7 @@ public class PopupWindow {
     public static boolean showConfirmationWindow(String headerText, String contentText) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         DialogPane diagPane = alert.getDialogPane();
-        diagPane.getStylesheets().add(stylesheet.toExternalForm());
+        diagPane.getStylesheets().add(Main.stylesheet.toExternalForm());
         ((Stage)diagPane.getScene().getWindow()).getIcons().setAll(AlertIcon);
         alert.setTitle("Warning");
         alert.setHeaderText(headerText);

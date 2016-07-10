@@ -89,7 +89,7 @@ public class Exercise {
         }
     }
 
-    public JavaStringCompiler getCompiler() {
+    public CompilationUnit[] getCompilationUnits() {
         List<CompilationUnit> compilationUnits = new LinkedList<>();
         for(Classframe classframe:classframes) {
             compilationUnits.add(classframe.getCompilationUnit());
@@ -97,6 +97,6 @@ public class Exercise {
         for(Classframe testframe:testframes) {
             compilationUnits.add(testframe.getCompilationUnit());
         }
-        return CompilerFactory.getCompiler(compilationUnits.toArray(new CompilationUnit[compilationUnits.size()]));
+        return compilationUnits.toArray(new CompilationUnit[compilationUnits.size()]);
     }
 }

@@ -3,15 +3,14 @@ package status;
 import gui.StatusDisplay;
 import javafx.scene.paint.Color;
 import status.babystep.BabystepControls;
+import status.tracking.Tracker;
 import system.Exercise;
-import vk.core.api.CompilerResult;
-import vk.core.api.JavaStringCompiler;
-import vk.core.api.TestResult;
+import vk.core.api.*;
 
 public class Refactor extends Status{
 
-    public Refactor(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls){
-        super(statusDisplay,exercise,babystepControls);
+    public Refactor(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls, Tracker tracker){
+        super(statusDisplay,exercise,babystepControls,tracker);
         statusDisplay.displaySwitchStatusOptions(false,true,true);
         statusDisplay.displayStatus("REFACTOR", Color.TURQUOISE);
         statusDisplay.displayClassList(exercise.getClassNames());
@@ -37,7 +36,8 @@ public class Refactor extends Status{
     @Override
     public boolean switchToRed() {
         saveCurrentClassframe();
-        JavaStringCompiler compiler = exercise.getCompiler();
+        CompilationUnit[] compilationUnits = exercise.getCompilationUnits();
+        JavaStringCompiler compiler = CompilerFactory.getCompiler(compilationUnits);
         compiler.compileAndRunTests();
         CompilerResult compilerResult = compiler.getCompilerResult();
         if(!compilerResult.hasCompileErrors()) {
@@ -45,6 +45,8 @@ public class Refactor extends Status{
             if(testResult.getNumberOfFailedTests()==0) {
                 statusDisplay.displayFeedback("NOTE: Compilation and testing successful. Therefore switching to status RED.");
                 exercise.clearAllSavedContent();
+                timeTracker.end();
+                tracker.addTimeToStatus(getStatus(),timeTracker);
                 return true;
             } else {
                 statusDisplay.displayFeedback("ERROR: To switch to status RED all tests must be successful. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
@@ -52,6 +54,9 @@ public class Refactor extends Status{
             }
         } else {
             statusDisplay.displayFeedback("ERROR: Could not compile. Switching to status RED is not possible.");
+            for(CompilationUnit unit: compilationUnits){
+                tracker.analyseAndAddCompileErrors(compilerResult.getCompilerErrorsForCompilationUnit(unit));
+            }
             return false;
         }
     }

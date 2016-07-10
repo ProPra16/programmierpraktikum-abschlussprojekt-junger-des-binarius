@@ -21,6 +21,7 @@
         </Menu>
         <Menu text="Exercise">
             <MenuItem text="Show Description" onAction="#showDescription"/>
+            <MenuItem text="Show Tracking" onAction="#showTracking"/>
         </Menu>
     </MenuBar>
     <HBox prefHeight="10000" prefWidth="10000">

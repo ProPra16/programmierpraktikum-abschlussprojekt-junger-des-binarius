@@ -4,4 +4,5 @@ public interface BabystepControls {
     void start();
     void stop();
     void restart();
+    boolean running();
 }

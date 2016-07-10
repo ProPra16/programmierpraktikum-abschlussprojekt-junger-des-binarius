@@ -4,15 +4,16 @@ import gui.PopupWindow;
 import gui.StatusDisplay;
 import javafx.scene.paint.Color;
 import status.babystep.BabystepControls;
+import status.tracking.Tracker;
 import system.Exercise;
-import vk.core.api.CompilerResult;
-import vk.core.api.JavaStringCompiler;
-import vk.core.api.TestResult;
+import vk.core.api.*;
+
+import java.util.Collection;
 
 public class Green extends Status{
 
-    public Green(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls){
-        super(statusDisplay,exercise,babystepControls);
+    public Green(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls, Tracker tracker){
+        super(statusDisplay,exercise,babystepControls,tracker);
         exercise.saveCurrentContent();
         statusDisplay.displaySwitchStatusOptions(false,true,false);
         statusDisplay.displayStatus("GREEN", Color.valueOf("#00FF00"));
@@ -43,6 +44,7 @@ public class Green extends Status{
             exercise.restoreSavedContent();
             exercise.restoreSavedContent();
             statusDisplay.displayFeedback("NOTE: Switched back to status RED. New progress erased and former content restored.");
+            tracker.addTimeToStatus(getStatus(),timeTracker);
             return true;
         } else {
             statusDisplay.displayFeedback("NOTE: Switching back to status RED cancelled.");
@@ -53,20 +55,27 @@ public class Green extends Status{
     @Override
     public boolean switchToRefactor() {
         saveCurrentClassframe();
-        JavaStringCompiler compiler = exercise.getCompiler();
+        CompilationUnit[] compilationUnits = exercise.getCompilationUnits();
+        JavaStringCompiler compiler = CompilerFactory.getCompiler(compilationUnits);
         compiler.compileAndRunTests();
         CompilerResult compilerResult = compiler.getCompilerResult();
         if(!compilerResult.hasCompileErrors()) {
             TestResult testResult = compiler.getTestResult();
             if(testResult.getNumberOfFailedTests()==0) {
                 statusDisplay.displayFeedback("NOTE: Compilation and testing successful. Therefore switching to status REFACTOR.");
+                timeTracker.end();
+                tracker.addTimeToStatus(getStatus(),timeTracker);
                 return true;
             } else {
                 statusDisplay.displayFeedback("ERROR: To switch to status REFACTOR all tests must be successful. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
+                tracker.incrementErrorCount("FailedTestsInGREEN");
                 return false;
             }
         } else {
             statusDisplay.displayFeedback("ERROR: Could not compile. Switching to status REFACTOR is not possible.");
+            for(CompilationUnit unit: compilationUnits){
+                tracker.analyseAndAddCompileErrors(compilerResult.getCompilerErrorsForCompilationUnit(unit));
+            }
             return false;
         }
     }
@@ -76,6 +85,8 @@ public class Green extends Status{
         exercise.restoreSavedContent();
         exercise.restoreSavedContent();
         statusDisplay.displayFeedback("ALERT: Time is Up! Switching back to the beginning of Red");
+        timeTracker.end();
+        tracker.addTimeToStatus(getStatus(),timeTracker);
         return Status.RED;
     }
 }
