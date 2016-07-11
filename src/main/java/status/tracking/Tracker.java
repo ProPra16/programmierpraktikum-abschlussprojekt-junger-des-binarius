@@ -99,8 +99,10 @@ public class Tracker {
                 new PieChart.Data("REFACTOR " + Math.floor(timeMillisInStatus[Status.REFACTOR]/100)/10+ " sec", timeMillisInStatus[Status.REFACTOR]));
         pieChart.setData(piecontent);
         pieChart.setTitle("Time spent in statuses");
+        pieChart.setPrefWidth(500);
 
         TextArea errorArea = new TextArea();
+        errorArea.setPrefWidth(500);
         errorArea.setEditable(false);
 
         Set<String> keys = errors.keySet();
@@ -108,11 +110,12 @@ public class Tracker {
             errorArea.setText("No errors have occurred during your work. Well done!");
         }else{
             errorArea.setText("During your work the following errors have occurred:\n\n");
+            errorArea.appendText("#Occurrences\t| Errors\n");
+            errorArea.appendText("----------------|-----------------------------------------\n");
             for(String key:keys){
-                errorArea.appendText(key+":\t"+errors.get(key)+"\n");
+                errorArea.appendText(errors.get(key)+"\t\t| "+key+"\n");
             }
         }
-
 
         hbox.getChildren().setAll(pieChart,errorArea);
         Scene scene = new Scene(hbox);
