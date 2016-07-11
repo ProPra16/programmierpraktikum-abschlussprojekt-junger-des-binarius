@@ -1,81 +1,145 @@
+<!--Die Aufgaben sind teilweise inspiriert von den Informatik1 Uebungen im WS15-->
 <excercises>
-    <exercise name="Römische Zahlen">
-        <description>Konvertiert arabische in römische Zahlen.</description>
-        <classes>
-            <class name="RomanNumberConverter">
-public class RomanNumberConverter {
+	<exercise name="2-Norm eines Vektors">
+		<description>Schreiben Sie eine Methode zur Berechnung der 2-Norm eines zweidimensionalen reellen Vektors (Euklidische Norm).
+
+Hinweis: Nutzen Sie als Rueckgabewert am besten double und runden Sie das Ergebnis auf die erste Nachkommastelle.</description>
+		<classes>
+			<class name="EuclideanNorm">
+public class EuclideanNorm {
 
 }
-            </class>
-            <class name="class2">
-public class class2 {
-
-}
-            </class>
-        </classes>
-        <tests>
-            <test name="RomanNumberConverterTest">
+			</class>
+		</classes>
+		<tests>
+			<test name="EuclideanNormTest">
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class RomanNumberConverterTest {
-    @Test
-    public void testAdd() {
-        RomanNumber romanNumber = new RomanNumber();
+public class EuclideanNormTest {
+	@Test
+	public void testEuclideanNorm() {
 
-        int result = romanNumber.add(5,7);
-        int expected = (5+7);
-
-        assertTrue(expected == result);
-    }
-}
-            </test>
-            <test name="class2Test">
-import static org.junit.Assert.*;
-import org.junit.Test;
-public class class2Test {
-    @Test
-    public void testSomething() {
-    }
-}
-            </test>
-        </tests>
-        <config>
-            <babysteps statusSwitch="false" time="10" />
-            <timetracking value="true" />
-        </config>
-    </exercise>
-    <exercise name="TestExercise">
-        <description>Konvertiert arabische in r¨omische Zahlen.</description>
-        <classes>
-            <class name="RomanNumbers">
-public class RomanNumbers {
-
-	public int add(int zahl1,int zahl2){
-		return zahl1+zahl2;
 	}
 }
-            </class>
-        </classes>
-        <tests>
-            <test name="RomanNumbersTest">
+			</test>
+		</tests>
+		<config>
+			<babysteps statusSwitch="true" time="120" />
+		</config>
+	</exercise>
+	<exercise name="Median ganzer Zahlen">
+		<description>Schreiben Sie eine Methode zur Berechnung des Medians ganzer Zahlen.
+
+Hinweis: Nutzen Sie als Uebergabeparameter ein Integer-Array. Bei gerader Anzahl an Zahlen gilt die Zahl als Median, die rechts von der Mitte steht.</description>
+		<classes>
+			<class name="Median">
+public class Median {
+
+}
+			</class>
+		</classes>
+		<tests>
+			<test name="MedianTest">
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class RomanNumbersTest {
-    @Test
-    public void testAdd() {
-		RomanNumbers romanNumbers = new RomanNumbers();
+public class MedianTest {
+	@Test
+	public void testMedian() {
 
-		int result = romanNumbers.add(5,7);
-		int expected = (5+7);
-
-		assertTrue(expected == result);
-    }
+	}
 }
-            </test>
-        </tests>
-        <config>
-            <babysteps statusSwitch="true" time="100" />
-            <timetracking value="true" />
-        </config>
-    </exercise>
+			</test>
+		</tests>
+		<config>
+			<babysteps statusSwitch="true" time="120" />
+		</config>
+	</exercise>
+		<exercise name="Skalarprodukt eines Vektors">
+		<description>Schreiben Sie zunaechst eine Klasse Vector, welche drei Koordinaten eines dreidimensionalen ganzzahligen Vektors einspeichert und per getter-Methoden zurueckgeben kann. Anschliessend schreiben Sie in der Klasse DotProduct eine Methode zur Berechnung des Standartskalarproduktes zweier Vektoren.
+
+Hinweis: Bei der Berechnung des Skalarproduktes reicht es aus, sich auf dreidimensionale Vektoren zu beschraenken.</description>
+		<classes>
+			<class name="Vector">
+public class Vector {
+
+}
+			</class>
+			<class name="DotProduct">
+public class DotProduct {
+
+}
+			</class>
+		</classes>
+		<tests>
+			<test name="VectorTest">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class VectorTest {
+	@Test
+	public void testVector() {
+
+	}
+}
+			</test>
+			<test name="DotProductTest">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class DotProductTest {
+
+}
+			</test>
+		</tests>
+		<config>
+			<babysteps statusSwitch="false" time="60" />
+		</config>
+	</exercise>
+		<exercise name="BabystepTestaufgabe">
+		<description>Dies ist eine Aufgabe um die Funktionsweise der Babysteps zu ueberpruefen.</description>
+		<classes>
+			<class name="Class1">
+public class Class1 {
+
+}
+			</class>
+			<class name="Class2">
+public class Class2 {
+
+}
+			</class>
+			<class name="Class3">
+public class Class3 {
+
+}
+			</class>
+		</classes>
+		<tests>
+			<test name="Class1Test">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class Class1Test {
+	@Test
+    public void testClass1() {
+
+	}
+}
+			</test>
+			<test name="Class2Test">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class Class2Test {
+
+}
+			</test>
+			<test name="Class3Test">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class Class3Test {
+
+}
+			</test>
+		</tests>
+		<config>
+			<babysteps statusSwitch="true" time="10" />
+		</config>
+	</exercise>
 </excercises>

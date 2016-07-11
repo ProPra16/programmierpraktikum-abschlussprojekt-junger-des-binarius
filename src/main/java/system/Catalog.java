@@ -36,6 +36,14 @@ public class Catalog {
         return names;
     }
 
+    public List<String> getAllExerciseNamesWithDescription(){
+        List<String> names = new LinkedList<>();
+        for(Exercise exercise : exercises){
+            names.add(exercise.getName()+(exercise.getBabystepStatusSwitchActivated()?" (B)":""));
+        }
+        return names;
+    }
+
     public void loadCatalogFromXML(File alternativeCatalogFileXML){
         try {
             DocumentBuilderFactory docbfac = DocumentBuilderFactory.newInstance();

@@ -25,6 +25,7 @@ public class PopupWindow {
         vBox.getStylesheets().add(Main.stylesheet.toExternalForm());
         TextArea descriptionArea = new TextArea();
         descriptionArea.setEditable(false);
+        descriptionArea.setWrapText(true);
         descriptionArea.setText("Exercise:\n"+exercise.getName()+"\n\n"+"Description:\n"+exercise.getDescription());
         vBox.getChildren().add(descriptionArea);
         Scene scene = new Scene(vBox);
@@ -53,7 +54,7 @@ public class PopupWindow {
         listScene.getStylesheets().add(Main.stylesheet.toExternalForm());
         listStage.initModality(Modality.WINDOW_MODAL);
         listStage.initOwner(Main.primaryStage);
-        exerciseView.getItems().setAll(catalog.getAllExerciseNames());
+        exerciseView.getItems().setAll(catalog.getAllExerciseNamesWithDescription());
         exerciseView.getSelectionModel().select(0);
         listStage.setScene(listScene);
         listStage.sizeToScene();
