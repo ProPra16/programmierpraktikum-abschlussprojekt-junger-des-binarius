@@ -43,8 +43,7 @@ public class Red extends Status {
             TestResult testResult = compiler.getTestResult();
             if (testResult.getNumberOfFailedTests() == 1) {
                 statusDisplay.displayFeedback("NOTE: Exactly one test has failed, therefore switching from RED to GREEN");
-                timeTracker.end();
-                tracker.addTimeToStatus(getStatus(),timeTracker);
+                stopTimeTracking();
                 return true;
             } else {
                 statusDisplay.displayFeedback("ERROR: Exactly one failed test is needed to switch to status GREEN. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
@@ -52,8 +51,7 @@ public class Red extends Status {
             }
         }else{
             statusDisplay.displayFeedback("NOTE: Could not compile tests, therefore switching from RED to GREEN");
-            timeTracker.end();
-            tracker.addTimeToStatus(getStatus(),timeTracker);
+            stopTimeTracking();
             return true;
         }
     }
@@ -62,8 +60,7 @@ public class Red extends Status {
     public int timeExpired() {
         exercise.restoreSavedContent();
         statusDisplay.displayFeedback("ALERT: Time is Up! New Code was erased.");
-        timeTracker.end();
-        tracker.addTimeToStatus(getStatus(),timeTracker);
+        stopTimeTracking();
         return getStatus();
     }
 }

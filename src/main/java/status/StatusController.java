@@ -25,7 +25,9 @@ public class StatusController implements EventHandler<BabystepperEvent>{
     public void showTracking(){
         boolean running = babystepper.running();
         babystepper.stop();
+        currentStatus.stopTimeTracking();
         tracker.showData();
+        currentStatus.continueTimeTracking();
         if(running)
             babystepper.start();
     }

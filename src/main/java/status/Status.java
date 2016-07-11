@@ -29,6 +29,15 @@ public abstract class Status {
 
     public abstract void changeClassframe(int index);
 
+    public void stopTimeTracking(){
+        timeTracker.end();
+        tracker.addTimeToStatus(getStatus(),timeTracker);
+    }
+
+    public void continueTimeTracking(){
+        timeTracker.start();
+    }
+
     public boolean switchToRed() {
         saveCurrentClassframe();
         return false;

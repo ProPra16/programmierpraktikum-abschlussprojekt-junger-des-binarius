@@ -45,8 +45,7 @@ public class Refactor extends Status{
             if(testResult.getNumberOfFailedTests()==0) {
                 statusDisplay.displayFeedback("NOTE: Compilation and testing successful. Therefore switching to status RED.");
                 exercise.clearAllSavedContent();
-                timeTracker.end();
-                tracker.addTimeToStatus(getStatus(),timeTracker);
+                stopTimeTracking();
                 return true;
             } else {
                 statusDisplay.displayFeedback("ERROR: To switch to status RED all tests must be successful. Currently " + testResult.getNumberOfFailedTests() + " tests have failed.");
