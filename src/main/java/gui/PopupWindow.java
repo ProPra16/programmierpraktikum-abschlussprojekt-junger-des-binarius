@@ -26,6 +26,7 @@ public class PopupWindow {
         TextArea descriptionArea = new TextArea();
         descriptionArea.setEditable(false);
         descriptionArea.setWrapText(true);
+        descriptionArea.setPrefSize(400,300);
         descriptionArea.setText("Exercise:\n"+exercise.getName()+"\n\n"+"Description:\n"+exercise.getDescription());
         vBox.getChildren().add(descriptionArea);
         Scene scene = new Scene(vBox);

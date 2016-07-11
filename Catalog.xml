@@ -85,7 +85,10 @@ public class VectorTest {
 import static org.junit.Assert.*;
 import org.junit.Test;
 public class DotProductTest {
+	@Test
+	public void testDotProduct() {
 
+	}
 }
 			</test>
 		</tests>
@@ -127,14 +130,20 @@ public class Class1Test {
 import static org.junit.Assert.*;
 import org.junit.Test;
 public class Class2Test {
+	@Test
+    public void testClass2() {
 
+	}
 }
 			</test>
 			<test name="Class3Test">
 import static org.junit.Assert.*;
 import org.junit.Test;
 public class Class3Test {
+	@Test
+    public void testClass3() {
 
+	}
 }
 			</test>
 		</tests>
