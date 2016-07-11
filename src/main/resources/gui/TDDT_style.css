@@ -21,6 +21,7 @@
 /*Text-area Customization*/
 .text-area {
     -fx-text-fill: LightGrey;
+    -fx-font-family: monospace;
     -fx-background-color: transparent, #303030, transparent, #303030;
 }
 .text-area .content {
@@ -107,3 +108,18 @@
 .dialog-pane:header .header-panel {
     -fx-background-color: #383838;
 }
+
+/*Pie-Chart Customization*/
+.chart-legend {
+    -fx-background-color: transparent;
+}
+.chart-pie-label {
+    -fx-fill: LightGrey;
+}
+.chart-pie-label-line {
+    -fx-fill: LightGrey;
+    -fx-stroke: LightGrey;
+}
+.data0.chart-pie { -fx-pie-color: red;}
+.data1.chart-pie { -fx-pie-color: green;}
+.data2.chart-pie { -fx-pie-color: turquoise;}

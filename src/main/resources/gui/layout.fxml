@@ -48,13 +48,13 @@
             <Label fx:id="countdownLabel" text="Remaining Time: " />
         </VBox>
         <TextArea fx:id="codeArea" prefWidth="10000" prefHeight="10000"
-                  style="-fx-font-family:monospace; -fx-font-size:18px;"/>
+                  style="-fx-font-size:18px;"/>
     </HBox>
     <VBox>
         <padding>
             <Insets bottom="15" right="15" left="15"/>
         </padding>
         <TextArea fx:id="outputArea" editable="false" prefWidth="10000" minHeight="150"
-                  style="-fx-text-fill:orange;-fx-font-family:monospace; -fx-font-size:12px;"/>
+                  style="-fx-text-fill:orange; -fx-font-size:12px;"/>
     </VBox>
 </VBox>

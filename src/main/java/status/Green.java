@@ -44,6 +44,7 @@ public class Green extends Status{
             exercise.restoreSavedContent();
             exercise.restoreSavedContent();
             statusDisplay.displayFeedback("NOTE: Switched back to status RED. New progress erased and former content restored.");
+            timeTracker.end();
             tracker.addTimeToStatus(getStatus(),timeTracker);
             return true;
         } else {
