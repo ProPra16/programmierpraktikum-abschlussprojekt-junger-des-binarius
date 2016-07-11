@@ -24,7 +24,7 @@ public class EuclideanNormTest {
 			</test>
 		</tests>
 		<config>
-			<babysteps statusSwitch="true" time="120" />
+			<babysteps statusSwitch="true" time="240" />
 		</config>
 	</exercise>
 	<exercise name="Median ganzer Zahlen">
@@ -51,7 +51,7 @@ public class MedianTest {
 			</test>
 		</tests>
 		<config>
-			<babysteps statusSwitch="true" time="120" />
+			<babysteps statusSwitch="true" time="300" />
 		</config>
 	</exercise>
 		<exercise name="Skalarprodukt eines Vektors">
@@ -93,7 +93,7 @@ public class DotProductTest {
 			</test>
 		</tests>
 		<config>
-			<babysteps statusSwitch="false" time="60" />
+			<babysteps statusSwitch="false" time="180" />
 		</config>
 	</exercise>
 		<exercise name="BabystepTestaufgabe">
@@ -121,7 +121,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 public class Class1Test {
 	@Test
-    public void testClass1() {
+	public void testClass1() {
 
 	}
 }
@@ -131,7 +131,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 public class Class2Test {
 	@Test
-    public void testClass2() {
+	public void testClass2() {
 
 	}
 }
@@ -141,7 +141,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 public class Class3Test {
 	@Test
-    public void testClass3() {
+	public void testClass3() {
 
 	}
 }
