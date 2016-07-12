@@ -18,7 +18,7 @@ public class Green extends Status{
         statusDisplay.displayClassList(exercise.getClassNames());
         currentClassframe = exercise.getClassframes()[0];
         statusDisplay.displayCode(currentClassframe.getFrameContent());
-        babystepControls.restart();
+        babystepControls.resetTimer();
     }
 
     @Override
@@ -35,9 +35,9 @@ public class Green extends Status{
 
     @Override
     public boolean switchToRed() {
-        babystepControls.stop();
+        babystepControls.pauseTimer();
         boolean confirmationResult = PopupWindow.showConfirmationWindow("You are trying to switch back to status RED. \nTherefore the current progress in status GREEN will be erased.","Do you want to continue?");
-        babystepControls.start();
+        babystepControls.continueTimer();
         if(confirmationResult) {
             exercise.restoreSavedContent();
             exercise.restoreSavedContent();

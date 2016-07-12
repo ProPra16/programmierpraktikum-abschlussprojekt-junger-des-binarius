@@ -15,6 +15,7 @@ public class Exercise {
     private Classframe[] testframes;
     private long babystepTime;
     private boolean babystepStatusSwitchActivated;
+
     public Exercise(String name,String description,Classframe[] classframes,Classframe[] testframes,long babystepTime, boolean babystepStatusSwitchActivated){
         this.name = name;
         this.description = description;

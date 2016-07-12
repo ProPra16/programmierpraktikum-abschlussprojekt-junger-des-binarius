@@ -11,10 +11,17 @@ import javafx.stage.Stage;
 import system.Catalog;
 import system.Exercise;
 
+/**
+ * Stellt Methoden zur Anzeige kleinerer Fenster bereit.
+ */
 public class PopupWindow {
     private static final Image CatalogIcon = new Image("images/ICON_Catalog.png");
     private static final Image AlertIcon = new Image("images/ICON_Alert.png");
 
+    /**
+     * Erstellt ein Fenster zur Anzeige der Aufgabenstellung.
+     * @param exercise Aufgabe, deren Aufgabenstellung angezeigt werden soll.
+     */
     public static void showExerciseDescriptionWindow(Exercise exercise){
         Stage stage = new Stage();
         stage.getIcons().setAll(CatalogIcon);
@@ -34,6 +41,11 @@ public class PopupWindow {
         stage.show();
     }
 
+    /**
+     * Erstellt ein Fenster zum Auswaehlen einer Aufgabe aus dem Katalog.
+     * @param catalog Katalog, aus welchem die Aufgabe ausgewaehlt werden kann.
+     * @return die selektierte Aufgabe.
+     */
     public static Exercise showCatalogChooserWindow(Catalog catalog) {
         Stage listStage = new Stage();
         listStage.getIcons().setAll(CatalogIcon);
@@ -64,6 +76,12 @@ public class PopupWindow {
         return catalog.getExercise(index);
     }
 
+    /**
+     * Erstellt ein Alert-Fenster, welches den Nutzer zu einer Eingabe von OK oder ABBRECHEN auffordert.
+     * @param headerText Ueberschrift.
+     * @param contentText Inhalt.
+     * @return ob OK ausgewaehlt wurde.
+     */
     public static boolean showConfirmationWindow(String headerText, String contentText) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         DialogPane diagPane = alert.getDialogPane();
@@ -76,5 +94,4 @@ public class PopupWindow {
 
         return alert.getResult()== ButtonType.OK;
     }
-
 }

@@ -17,27 +17,35 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
+/**
+ * Repraesentiert die Erweiterung Tracking. Speichert Fehler und Zeiten der einzelnen Statusse.
+ */
 public class Tracker {
     private long[] timeMillisInStatus;
     private static final Image trackingIcon = new Image("/images/ICON_Tracking.png");
     private HashMap<String,Integer> errors;
+
     public Tracker(){
         timeMillisInStatus = new long[3];
         for(int i=0;i<3;i++){
-            timeMillisInStatus[i]=1;//fur den anfang ohne zeiten
+            timeMillisInStatus[i]=1; //Fuer den Anfang ohne Zeiten.
         }
         errors = new HashMap<String,Integer>();
 
     }
 
+    /**
+     * Erhoeht bei speziell auftretenden Compilation-Fehlern den entsprechenden Counter.
+     * @param compileErrors Die auftretenden Compilation-Fehler.
+     */
     public void analyseAndAddCompileErrors(Collection<CompileError> compileErrors){
         for(CompileError error:compileErrors) {
             if (error.getMessage().contains(" expected")) {
                 incrementErrorCount("... expected");
             } else if (error.getMessage().contains("unclosed string literal")) {
                 incrementErrorCount("unclosed string literal");
-            } else if (error.getMessage().contains("illegal start of expression")) {
-                incrementErrorCount("illegal start of expression");
+            } else if (error.getMessage().contains("illegal continueTimer of expression")) {
+                incrementErrorCount("illegal continueTimer of expression");
             } else if (error.getMessage().contains("not a statement")) {
                 incrementErrorCount("not a statement");
             } else if (error.getMessage().contains("cannot find symbol")) {
@@ -72,6 +80,10 @@ public class Tracker {
         }
     }
 
+    /**
+     * Erhoeht den jeweiligen Fehlercounter um 1.
+     * @param error Auftretender Fehler.
+     */
     public void incrementErrorCount(String error){
         if(errors.containsKey(error)){
             errors.put(error,errors.get(error)+1);
@@ -80,10 +92,18 @@ public class Tracker {
         }
     }
 
+    /**
+     * Addiert zu der Status-Gesamtzeit eine Zwischenzeit hinzu.
+     * @param status Status, in welchem sich aufgehalten wurde.
+     * @param timeTracker Zwischenzeit.
+     */
     public void addTimeToStatus(int status,TimeTracker timeTracker){
         timeMillisInStatus[status]+=timeTracker.getTimeMillis();
     }
 
+    /**
+     * Erstellt das Tracking-Analyse-Fenster mit entsprechendem Kuchendiagramm und Fehlerliste.
+     */
     public void showData(){
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
@@ -125,5 +145,4 @@ public class Tracker {
         stage.sizeToScene();
         stage.showAndWait();
     }
-
 }

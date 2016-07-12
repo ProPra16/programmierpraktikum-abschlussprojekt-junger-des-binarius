@@ -18,7 +18,7 @@ public class Red extends Status {
         statusDisplay.displayClassList(exercise.getTestNames());
         currentClassframe = exercise.getTestframes()[0];
         statusDisplay.displayCode(currentClassframe.getFrameContent());
-        babystepControls.restart();
+        babystepControls.resetTimer();
         exercise.saveCurrentContent();
     }
 

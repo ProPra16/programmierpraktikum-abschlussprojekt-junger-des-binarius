@@ -16,8 +16,8 @@ public class Refactor extends Status{
         statusDisplay.displayClassList(exercise.getClassNames());
         currentClassframe = exercise.getClassframes()[0];
         statusDisplay.displayCode(currentClassframe.getFrameContent());
-        babystepControls.restart();
-        babystepControls.stop();
+        babystepControls.resetTimer();
+        babystepControls.pauseTimer();
         exercise.saveCurrentContent();
     }
 

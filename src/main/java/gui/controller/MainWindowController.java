@@ -16,6 +16,9 @@ import system.Exercise;
 
 import java.util.List;
 
+/**
+ * Klar von Logik getrennte grafische Benutzeroberflaeche. Implementiert Methoden des Interfaces StatusDisplay, diese sind selbsterklaerend.
+ */
 public class MainWindowController implements StatusDisplay {
     private Catalog catalog;
     private StatusController statusController;
@@ -52,19 +55,6 @@ public class MainWindowController implements StatusDisplay {
         }
     }
 
-    public void displayCode(String code){
-        codeArea.setText(code);
-    }
-
-    public String getCode(){
-        return codeArea.getText();
-    }
-
-    public void displayClassList(List<String> content){
-        classesListView.getItems().setAll(content);
-        classesListView.getSelectionModel().select(0);
-    }
-
     public void selectClass(){
         int index = classesListView.getFocusModel().getFocusedIndex();
         statusController.changeClassframe(index);
@@ -80,17 +70,36 @@ public class MainWindowController implements StatusDisplay {
         }
     }
 
+    @Override
+    public void displayCode(String code){
+        codeArea.setText(code);
+    }
+
+    @Override
+    public String getCode(){
+        return codeArea.getText();
+    }
+
+    @Override
+    public void displayClassList(List<String> content){
+        classesListView.getItems().setAll(content);
+        classesListView.getSelectionModel().select(0);
+    }
+
+    @Override
     public void displayStatus(String statusText, Color color){
         statusLabel.setTextFill(color);
         statusLabel.setText(statusText);
     }
 
+    @Override
     public void displaySwitchStatusOptions(boolean red, boolean green, boolean refactor){
         switchToRed.setDisable(red);
         switchToGreen.setDisable(green);
         switchToRefactor.setDisable(refactor);
     }
 
+    @Override
     public void displayFeedback(String text) {
         outputArea.appendText(text+"\n");
     }

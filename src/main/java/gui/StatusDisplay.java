@@ -4,6 +4,10 @@ import javafx.scene.paint.Color;
 
 import java.util.List;
 
+/**
+ * Interface, welches Methoden verlangt um in einem Fenster einen Status anzeigen lassen zu koennen.
+ * Hier: Kontrolle der Elemente des Hauptfensters.
+ */
 public interface StatusDisplay {
     String getCode();
 

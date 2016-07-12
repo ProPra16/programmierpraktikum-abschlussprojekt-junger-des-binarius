@@ -7,8 +7,12 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Initialisiert das Hauptfenster.
+ */
 public class Main extends Application {
     public static Stage primaryStage;
     public static final URL stylesheet = Main.class.getResource("/gui/TDDT_style.css");
@@ -17,7 +21,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws IOException{
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/gui/layout.fxml"));
         Scene mainScene = new Scene(root);

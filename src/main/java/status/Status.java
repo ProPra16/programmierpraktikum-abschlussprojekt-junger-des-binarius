@@ -16,6 +16,7 @@ public abstract class Status {
     protected Classframe currentClassframe;
     protected StatusDisplay statusDisplay;
     protected BabystepControls babystepControls;
+
     public Status(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls, Tracker tracker){
         this.statusDisplay = statusDisplay;
         this.exercise = exercise;
