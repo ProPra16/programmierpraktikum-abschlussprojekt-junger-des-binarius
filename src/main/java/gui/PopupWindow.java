@@ -19,6 +19,7 @@ public class PopupWindow {
         Stage stage = new Stage();
         stage.getIcons().setAll(CatalogIcon);
         stage.setResizable(false);
+        stage.setTitle("Exercise Description");
         VBox vBox = new VBox();
         vBox.getStylesheets().add(Main.stylesheet.toExternalForm());
         TextArea descriptionArea = new TextArea();
