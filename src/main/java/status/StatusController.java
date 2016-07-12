@@ -32,6 +32,7 @@ public class StatusController implements EventHandler<BabystepperEvent>{
             babystepper.start();
     }
     public void closeExercise(){
+        currentStatus.saveCurrentClassframe();
         babystepper.stop();
         babystepper = null;
     }

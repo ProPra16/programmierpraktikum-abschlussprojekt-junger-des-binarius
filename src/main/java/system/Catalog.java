@@ -10,24 +10,30 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Liest den Aufgabenkatalog ein und stellt Methoden zur Behandlung bereit.
+ */
 public class Catalog {
     private static final File catalogFileXML = new File("Catalog.xml");
     private Exercise[] exercises;
 
     /**
-     * Eine Exercise bekommen wenn der Catalog bereits eingelesen wurde mit loadCatalogFromXML();
-     * @param i Der index dieser Aufgabe
-     * @return Die Ausgewaehlte Exercise
+     * Gibt eine Aufgabe zurueck, wenn der Catalog bereits eingelesen wurde mit loadCatalogFromXML().
+     * @param index Der index dieser Aufgabe.
+     * @return die ausgewaehlte Aufgabe.
      */
-    public Exercise getExercise(int i){
+    public Exercise getExercise(int index){
         if(exercises!=null) {
-            if (i < 0 || i >= exercises.length) {
+            if (index < 0 || index >= exercises.length) {
                 return null;
             }
         }
-        return exercises[i];
+        return exercises[index];
     }
 
+    /**
+     * @return alle Namen der Aufgaben in einer Liste.
+     */
     public List<String> getAllExerciseNames(){
         List<String> names = new LinkedList<>();
         for(Exercise exercise : exercises){
@@ -36,7 +42,10 @@ public class Catalog {
         return names;
     }
 
-    public List<String> getAllExerciseNamesWithDescription(){
+    /**
+     * @return alle Namen der Aufgaben in einer Liste mit Hinweis, ob Babysteps eingeschaltet sind.
+     */
+    public List<String> getAllExerciseNamesWithBabystepsInformation(){
         List<String> names = new LinkedList<>();
         for(Exercise exercise : exercises){
             names.add(exercise.getName()+(exercise.getBabystepStatusSwitchActivated()?" (B)":""));
@@ -44,6 +53,10 @@ public class Catalog {
         return names;
     }
 
+    /**
+     * Liesst einen XML-Aufgabenkatalog ein und speichert die Aufgaben in einem Exercise Array.
+     * @param alternativeCatalogFileXML Alternative XML-Datei zum Testen (Falls null, dann Standart-Aufgabenkatalog).
+     */
     public void loadCatalogFromXML(File alternativeCatalogFileXML){
         try {
             DocumentBuilderFactory docbfac = DocumentBuilderFactory.newInstance();
@@ -67,9 +80,9 @@ public class Catalog {
     }
 
     /**
-     * Eine Exercise aus XML lesen
-     * @param exerciseElement Hier den Exercise-Knoten einer XML-datei uebergeben
-     * @return Gibt eine Object des Typs Exercise zurueck
+     * Eine Aufgabe aus einer XML-Datei einlesen.
+     * @param exerciseElement Aufgaben-Knoten einer XML-Datei.
+     * @return eine Aufgabe.
      */
     private Exercise readExerciseFromXML(Element exerciseElement){
         //Name

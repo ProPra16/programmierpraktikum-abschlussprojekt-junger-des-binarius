@@ -54,7 +54,7 @@ public class PopupWindow {
         listScene.getStylesheets().add(Main.stylesheet.toExternalForm());
         listStage.initModality(Modality.WINDOW_MODAL);
         listStage.initOwner(Main.primaryStage);
-        exerciseView.getItems().setAll(catalog.getAllExerciseNamesWithDescription());
+        exerciseView.getItems().setAll(catalog.getAllExerciseNamesWithBabystepsInformation());
         exerciseView.getSelectionModel().select(0);
         listStage.setScene(listScene);
         listStage.sizeToScene();
