@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 import system.Catalog;
 import system.Exercise;
 
-import java.net.URL;
-
 public class PopupWindow {
     private static final Image CatalogIcon = new Image("images/ICON_Catalog.png");
     private static final Image AlertIcon = new Image("images/ICON_Alert.png");

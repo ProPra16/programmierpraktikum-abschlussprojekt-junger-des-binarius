@@ -1,0 +1,61 @@
+<excercises>
+    <exercise name="Skalarprodukt eines Vektors">
+		<description>Schreiben Sie zunaechst eine Klasse Vector, welche drei Koordinaten eines dreidimensionalen ganzzahligen Vektors einspeichert und per getter-Methoden zurueckgeben kann. Anschliessend schreiben Sie in der Klasse DotProduct eine Methode zur Berechnung des Standartskalarproduktes zweier Vektoren.
+
+Hinweis: Bei der Berechnung des Skalarproduktes reicht es aus, sich auf dreidimensionale Vektoren zu beschraenken.</description>
+		<classes>
+			<class name="Vector">
+public class Vector {
+    private int x;
+	private int y;
+	public Vector(int x,int y){
+		this.x = x;
+		this.y = y;
+	}
+	public int getX(){
+		return x;
+	}
+	public int getY(){
+		return y;
+	}
+}
+			</class>
+			<class name="DotProduct">
+public class DotProduct {
+    public static int calc(Vector v1,Vector v2){
+		return v1.getX()*v2.getX()+v1.getY()*v2.getY();
+	}
+}
+			</class>
+		</classes>
+		<tests>
+			<test name="VectorTest">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class VectorTest {
+	@Test
+	public void testVector() {
+        Vector v = new Vector(1,2);
+        assertEquals(v.getX(),1);
+        assertEquals(v.getY(),2);
+	}
+}
+			</test>
+			<test name="DotProductTest">
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class DotProductTest {
+	@Test
+	public void testDotProduct() {
+        Vector v1 = new Vector(1,2);
+		Vector v2 = new Vector(3,4);
+		assertEquals(DotProduct.calc(v1,v2),11);
+	}
+}
+			</test>
+		</tests>
+		<config>
+			<babysteps statusSwitch="false" time="180" />
+		</config>
+	</exercise>
+</excercises>

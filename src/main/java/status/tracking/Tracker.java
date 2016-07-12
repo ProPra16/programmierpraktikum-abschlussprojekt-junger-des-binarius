@@ -32,7 +32,6 @@ public class Tracker {
 
     public void analyseAndAddCompileErrors(Collection<CompileError> compileErrors){
         for(CompileError error:compileErrors) {
-            System.out.println(error.getMessage());
             if (error.getMessage().contains(" expected")) {
                 incrementErrorCount("... expected");
             } else if (error.getMessage().contains("unclosed string literal")) {

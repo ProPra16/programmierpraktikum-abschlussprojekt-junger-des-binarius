@@ -1,6 +1,8 @@
 package gui.controller;
 
-import gui.*;
+import gui.Main;
+import gui.PopupWindow;
+import gui.StatusDisplay;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,14 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
-import status.Red;
-import status.Status;
 import status.StatusController;
 import system.Catalog;
 import system.Exercise;
 
 import java.util.List;
-
 
 public class MainWindowController implements StatusDisplay {
     private Catalog catalog;

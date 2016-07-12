@@ -8,8 +8,6 @@ import status.tracking.Tracker;
 import system.Exercise;
 import vk.core.api.*;
 
-import java.util.Collection;
-
 public class Green extends Status{
 
     public Green(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls, Tracker tracker){

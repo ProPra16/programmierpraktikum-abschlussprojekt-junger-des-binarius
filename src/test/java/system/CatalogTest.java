@@ -1,13 +1,11 @@
-package system; /**
- * Test fuer die Klassen Catalog und teilweise Exercise, Classframe
- */
-
-import static org.junit.Assert.*;
+package system;
 
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+
+import static org.junit.Assert.*;
 
 public class CatalogTest {
     @Test

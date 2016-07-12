@@ -1,7 +1,6 @@
 package status.babystep;
 
 import gui.StatusDisplay;
-import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 
