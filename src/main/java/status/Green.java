@@ -50,8 +50,10 @@ public class Green extends Status{
     @Override
     public boolean switchToRed() {
         babystepControls.pauseTimer();
+        stopTimeTracking();
         boolean confirmationResult = PopupWindow.showConfirmationWindow("You are trying to switch back to status RED. \nTherefore the current progress in status GREEN will be erased.","Do you want to continue?");
         babystepControls.continueTimer();
+        continueTimeTracking();
         if(confirmationResult) {
             exercise.restoreSavedContent();
             exercise.restoreSavedContent();
