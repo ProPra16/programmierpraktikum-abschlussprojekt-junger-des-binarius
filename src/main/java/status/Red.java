@@ -9,6 +9,9 @@ import vk.core.api.CompilerFactory;
 import vk.core.api.JavaStringCompiler;
 import vk.core.api.TestResult;
 
+/**
+ * Repraesentiert den Status RED.
+ */
 public class Red extends Status {
 
     public Red(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls, Tracker tracker){
@@ -22,11 +25,18 @@ public class Red extends Status {
         exercise.saveCurrentContent();
     }
 
+    /**
+     * @return Gibt den Status RED zurueck.
+     */
     @Override
     public int getStatus() {
         return Status.RED;
     }
 
+    /**
+     * Wechselt zur ausgewaehlten Testklasse und stellt diese dar.
+     * @param index Welche Testklasse bearbeitet werden soll.
+     */
     @Override
     public void changeClassframe(int index) {
         saveCurrentClassframe();
@@ -34,6 +44,10 @@ public class Red extends Status {
         statusDisplay.displayCode(currentClassframe.getFrameContent());
     }
 
+    /**
+     * Es wird versucht in den Status GREEN zu wechseln.
+     * @return Gibt zurueck ob ein Wechsel moeglich ist.
+     */
     @Override
     public boolean switchToGreen() {
         saveCurrentClassframe();
@@ -56,6 +70,11 @@ public class Red extends Status {
         }
     }
 
+    /**
+     * Wird aufgerufen wenn Babystep-Timer abgelaufen ist.
+     * Stellt den Anfangsstand des Codes aus Status RED wieder her.
+     * @return  Gibt Status zurueck in den zurueckgewechselt werden soll (Hier in einer neuen Instanz des Status RED).
+     */
     @Override
     public int timeExpired() {
         exercise.restoreSavedContent();

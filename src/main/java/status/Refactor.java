@@ -7,6 +7,9 @@ import status.tracking.Tracker;
 import system.Exercise;
 import vk.core.api.*;
 
+/**
+ * Repraesentiert den Status REFACTOR.
+ */
 public class Refactor extends Status{
 
     public Refactor(StatusDisplay statusDisplay, Exercise exercise, BabystepControls babystepControls, Tracker tracker){
@@ -21,11 +24,18 @@ public class Refactor extends Status{
         exercise.saveCurrentContent();
     }
 
+    /**
+     * @return Gibt den Status REFACTOR zurueck.
+     */
     @Override
     public int getStatus(){
         return Status.REFACTOR;
     }
 
+    /**
+     * Wechselt zur ausgewaehlten Klasse und stellt diese dar.
+     * @param index Welche Klasse bearbeitet werden soll.
+     */
     @Override
     public void changeClassframe(int index){
         currentClassframe.setFrameContent(statusDisplay.getCode());
@@ -33,6 +43,10 @@ public class Refactor extends Status{
         statusDisplay.displayCode(currentClassframe.getFrameContent());
     }
 
+    /**
+     * Es wird versucht in den Status RED zu wechseln.
+     * @return Gibt zurueck ob ein Wechsel moeglich ist.
+     */
     @Override
     public boolean switchToRed() {
         saveCurrentClassframe();
