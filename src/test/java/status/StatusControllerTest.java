@@ -2,6 +2,7 @@ package status;
 
 import gui.StatusDisplay;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import system.Exercise;
 import java.util.List;
 import static org.junit.Assert.*;
 
-public class StatusControllerTest extends Application implements StatusDisplay{
+public class StatusControllerTest implements StatusDisplay{
     private String codeAreaText;
 
     private String validTest =
@@ -43,8 +44,6 @@ public class StatusControllerTest extends Application implements StatusDisplay{
             "}";
     @Test
     public void testCompleteCycle(){
-        launch();
-
         Classframe[] classframes = new Classframe[1];
         classframes[0] = new Classframe("TClass","",false);
         Classframe[] testframes = new Classframe[1];
@@ -93,13 +92,6 @@ public class StatusControllerTest extends Application implements StatusDisplay{
         codeAreaText = validClass;
         statusController.trySwitchToRed();
         assertEquals(Status.RED,statusController.getStatus());
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        //Will ich nicht aber muss das Fenster einmal zeigen damit alle Funktionen wie new Image() funktionieren.
-        primaryStage.show();
-        primaryStage.close();
     }
 
     @Override

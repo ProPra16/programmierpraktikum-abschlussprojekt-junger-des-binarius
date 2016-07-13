@@ -15,8 +15,7 @@ import system.Exercise;
  * Stellt Methoden zur Anzeige kleinerer Fenster bereit.
  */
 public class PopupWindow {
-    private static final Image CatalogIcon = new Image("images/ICON_Catalog.png");
-    private static final Image AlertIcon = new Image("images/ICON_Alert.png");
+
 
     /**
      * Erstellt ein Fenster zur Anzeige der Aufgabenstellung.
@@ -24,7 +23,7 @@ public class PopupWindow {
      */
     public static void showExerciseDescriptionWindow(Exercise exercise){
         Stage stage = new Stage();
-        stage.getIcons().setAll(CatalogIcon);
+        stage.getIcons().setAll(Main.CatalogIcon);
         stage.setResizable(false);
         stage.setTitle("Exercise Description");
         VBox vBox = new VBox();
@@ -48,7 +47,7 @@ public class PopupWindow {
      */
     public static Exercise showCatalogChooserWindow(Catalog catalog) {
         Stage listStage = new Stage();
-        listStage.getIcons().setAll(CatalogIcon);
+        listStage.getIcons().setAll(Main.CatalogIcon);
         listStage.setResizable(false);
         listStage.setTitle("Choose Exercise");
         VBox root = new VBox(5);
@@ -86,7 +85,7 @@ public class PopupWindow {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         DialogPane diagPane = alert.getDialogPane();
         diagPane.getStylesheets().add(Main.stylesheet.toExternalForm());
-        ((Stage)diagPane.getScene().getWindow()).getIcons().setAll(AlertIcon);
+        ((Stage)diagPane.getScene().getWindow()).getIcons().setAll(Main.AlertIcon);
         alert.setTitle("Warning");
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);

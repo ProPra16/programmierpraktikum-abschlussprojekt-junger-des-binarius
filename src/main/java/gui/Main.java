@@ -15,6 +15,10 @@ import java.net.URL;
  */
 public class Main extends Application {
     public static Stage primaryStage;
+    public static final Image trackingIcon = new Image("/images/ICON_Tracking.png");
+    public static final Image CatalogIcon = new Image("images/ICON_Catalog.png");
+    public static final Image AlertIcon = new Image("images/ICON_Alert.png");
+
     public static final URL stylesheet = Main.class.getResource("/gui/TDDT_style.css");
     public static void main(String[] args) {
         launch(args);

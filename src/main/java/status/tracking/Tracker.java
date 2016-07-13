@@ -22,7 +22,6 @@ import java.util.Set;
  */
 public class Tracker {
     private long[] timeMillisInStatus;
-    private static final Image trackingIcon = new Image("/images/ICON_Tracking.png");
     private HashMap<String,Integer> errors;
 
     public Tracker(){
@@ -109,7 +108,7 @@ public class Tracker {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Main.primaryStage);
         stage.setTitle("Tracking Analysis");
-        stage.getIcons().setAll(trackingIcon);
+        stage.getIcons().setAll(Main.trackingIcon);
         HBox hbox = new HBox();
 
         PieChart pieChart = new PieChart();
