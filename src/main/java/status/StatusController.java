@@ -40,7 +40,7 @@ public class StatusController implements EventHandler<BabystepperEvent>{
     }
 
     /**
-     * Gibt den aktuellen Status zurueck.
+     * @return den aktuellen Status.
      */
     public int getStatus(){
         return currentStatus.getStatus();
