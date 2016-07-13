@@ -40,6 +40,13 @@ public class StatusController implements EventHandler<BabystepperEvent>{
     }
 
     /**
+     * Gibt den aktuellen Status zurueck.
+     */
+    public int getStatus(){
+        return currentStatus.getStatus();
+    }
+
+    /**
      * Schliesst die aktuelle Aufgabe.
      */
     public void closeExercise(){
