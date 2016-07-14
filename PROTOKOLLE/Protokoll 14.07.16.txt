@@ -1,0 +1,19 @@
+Protokollant: Marius May
+
+Marius May, Can Schwarzkamp, Nils Kleine Klausing sind anwesend.
+
+wir haben alle Ziele, welche wir uns mit dem letzten Protokoll vorgenommen haben,
+erreicht:
+
+ - Es wurden die Erweiterungen Babysteps und Tracking in das Programm implementiert 
+   und bereits auf Fehler ueberprueft.
+
+ - README ist jetzt vollstaendig.
+
+ - Bericht und Handbuch wurden erstellt und mit entsprechendem Design versehen.
+
+ - Es wurden Tests hinzugefuegt die jede Klasse in dem Package "system" testet
+   und ein grossen Test "SystemControllerTest" der alle Statusse RED, GREEN und 
+   REFACTOR durchgeht und die jeweiligen Bedingungen ueberprueft.
+
+Damit wurden alle Aufgabenstellungen von Projekt 7 erreicht.
