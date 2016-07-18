@@ -15,9 +15,9 @@ import java.net.URL;
  */
 public class Main extends Application {
     public static Stage primaryStage;
-    public static final Image trackingIcon = new Image("/images/ICON_Tracking.png");
-    public static final Image CatalogIcon = new Image("images/ICON_Catalog.png");
-    public static final Image AlertIcon = new Image("images/ICON_Alert.png");
+    public static Image trackingIcon;
+    public static Image CatalogIcon;
+    public static Image AlertIcon;
 
     public static final URL stylesheet = Main.class.getResource("/gui/TDDT_style.css");
     public static void main(String[] args) {
@@ -26,6 +26,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException{
+        trackingIcon = new Image("/images/ICON_Tracking.png");
+        CatalogIcon = new Image("images/ICON_Catalog.png");
+        AlertIcon = new Image("images/ICON_Alert.png");
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/gui/layout.fxml"));
         Scene mainScene = new Scene(root);
